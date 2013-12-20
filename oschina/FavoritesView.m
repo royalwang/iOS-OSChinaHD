@@ -34,6 +34,12 @@
     favorites = [[NSMutableArray alloc] initWithCapacity:20];
     [self reload:YES];
     self.tableFavorites.backgroundColor = [Tool getBackgroundColor];
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)viewDidUnload
 {
@@ -329,6 +335,14 @@
 {
     [self reloadTableViewDataSource];
     [self refresh];
+}
+
+//2013.12.18song. tableView添加上拉更新
+- (void)egoRefreshTableHeaderDidTriggerToBottom
+{
+    if (!isLoading) {
+        [self performSelector:@selector(reload:)];
+    }
 }
 -(BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
 {

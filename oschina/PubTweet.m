@@ -51,6 +51,13 @@
     _emojiView = [[TSEmojiView alloc] initWithFrame:CGRectMake(-3, 0, 323, 520)];
     _emojiView.delegate = self;
     [scroll addSubview:_emojiView];
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)viewDidUnload
 {

@@ -69,6 +69,13 @@
     if (self.headTitle) {
         self.navigationItem.title = self.headTitle;
     }
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -101,6 +108,13 @@
     [_refreshHeaderView refreshLastUpdatedDate];
     
     self.tableComments.backgroundColor = [UIColor colorWithRed:248.0/255.0 green:249.0/255.0 blue:249.0/255.0 alpha:1.0];
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)viewDidUnload
 {
@@ -689,6 +703,15 @@
 {
     return _reloading;
 }
+
+//2013.12.18song. tableView添加上拉更新
+- (void)egoRefreshTableHeaderDidTriggerToBottom
+{
+    if (!isLoading) {
+        [self performSelector:@selector(reload:)];
+    }
+}
+
 - (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view
 {
     return [NSDate date];

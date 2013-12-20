@@ -52,6 +52,14 @@
     [self.settingsInSection setObject:second forKey:@"反馈"];
     [self.settingsInSection setObject:third forKey:@"关于"];
     self.settings = [[NSArray alloc] initWithObjects:@"帐号",@"反馈",@"关于",nil];
+    
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)viewDidAppear:(BOOL)animated
 {

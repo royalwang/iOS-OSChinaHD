@@ -16,6 +16,7 @@
 #import "UITap.h"
 #import "EGOImageView.h"
 #import "EGORefreshTableHeaderView.h"
+#import "GGFullscreenImageViewController.h"
 #import "IconDownloader.h"
 #import "TQImageCache.h"
 

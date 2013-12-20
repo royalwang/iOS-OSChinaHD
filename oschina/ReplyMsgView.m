@@ -42,6 +42,13 @@
         self.webViewReply.frame = CGRectMake(0, 0, 320, 323+88);
         self.txtReply.frame = CGRectMake(8, 332+88, 305, 46);
     }
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)viewDidAppear:(BOOL)animated
 {

@@ -48,6 +48,13 @@
     [self.settingsInSection setObject:second forKey:@"好友"];
     [self.settingsInSection setObject:third forKey:@"收藏"];
     self.settings = [[NSArray alloc] initWithObjects:@"信息",@"好友",@"收藏",nil];
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 #pragma mark 更新头像
 - (IBAction)clickUpdatePortrait:(id)sender {

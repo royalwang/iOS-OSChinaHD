@@ -30,6 +30,13 @@
         self.lblCopyright.center = CGPointMake(self.lblCopyright.center.x, self.lblCopyright.center.y + 88);
         self.img.image = [UIImage imageNamed:@"aboutbg1136.jpg"];
     }
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)clickWeb:(id)sender
 {

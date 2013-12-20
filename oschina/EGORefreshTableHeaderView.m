@@ -24,6 +24,8 @@
 //  THE SOFTWARE.
 //
 
+//viewtable的行为控制都主要在这里（不是点击事件），比如拖动，上拉。再代理到各个类里  by.song
+
 #import "EGORefreshTableHeaderView.h"
 
 
@@ -235,6 +237,11 @@
 		[UIView commitAnimations];
 		
 	}
+    
+    if(scrollView.contentOffset.y + (scrollView.frame.size.height) > scrollView.contentSize.height && !_loading)
+    {
+        [_delegate egoRefreshTableHeaderDidTriggerToBottom];
+    }
 	
 }
 

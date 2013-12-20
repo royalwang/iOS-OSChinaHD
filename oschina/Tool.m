@@ -547,9 +547,33 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
 }
 + (void)pushTweetImgDetail:(NSString *)img andParent:(UIViewController *)parent
 {
-    TweetImgDetail *imgDetail = [[TweetImgDetail alloc] init];
-    imgDetail.imgHref = img;
-    [parent presentModalViewController:imgDetail animated:YES];
+//    TweetImgDetail *imgDetail = [[TweetImgDetail alloc] init];
+//    imgDetail.imgHref = img;
+//    [parent presentModalViewController:imgDetail animated:YES];
+    
+//    NSString *imgAddr = [NSString stringWithFormat:@"<div style='margin:auto;width:640px;'><img width='640' style='vertical-align:middle' src='%@'/></div>", img];
+//    
+//    UIWebView *webView = [[UIWebView alloc]init];
+//    [webView loadHTMLString:imgAddr baseURL:nil];
+//    
+//    GGFullscreenImageViewController *vc = [[GGFullscreenImageViewController alloc] init];
+//    vc.liftedImageView = webView;
+//    [parent presentModalViewController:vc animated:YES ];
+//    
+    
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(48,27, 68, 68)];
+    [imageView setContentMode:UIViewContentModeScaleAspectFit];
+    NSURL *photoUrl = [NSURL URLWithString:img];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:photoUrl]];
+    imageView.image = image;
+    
+    
+    
+    GGFullscreenImageViewController *vc = [[GGFullscreenImageViewController alloc] init];
+    vc.liftedImageView = imageView;
+    [parent presentViewController:vc animated:YES completion:nil];
+    
 }
 + (NSString *)getTextViewString:(NSString *)author andObjectType:(int)objectType andObjectCatalog:(int)objectCatalog andObjectTitle:(NSString *)title  andMessage:(NSString *)message andPubDate:(NSString *)pubDate andReply:(ObjectReply *)reply
 {

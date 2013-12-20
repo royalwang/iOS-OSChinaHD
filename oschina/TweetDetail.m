@@ -108,6 +108,13 @@
         [hud hide:YES];
         [Tool ToastNotification:@"加载失败" andView:self.view andLoading:NO andIsBottom:NO];
     }];
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)clickComment:(id)sender
 {

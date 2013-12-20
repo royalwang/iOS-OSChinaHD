@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45F10B6215F4F5A70058E253 /* TQImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F10B6115F4F5A70058E253 /* TQImageCache.m */; };
+		6DFEF98B186312A2004EB774 /* GGFullscreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFEF98A186312A2004EB774 /* GGFullscreenImageViewController.m */; };
 		DA1763F4157C6AA400C7AE95 /* RTActiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1763F2157C6AA400C7AE95 /* RTActiveCell.m */; };
 		DA1763F5157C6AA400C7AE95 /* RTActiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1763F3157C6AA400C7AE95 /* RTActiveCell.xib */; };
 		DA1763F9157C6BCF00C7AE95 /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1763F8157C6BCF00C7AE95 /* RTLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -365,6 +366,8 @@
 /* Begin PBXFileReference section */
 		45F10B6015F4F5A70058E253 /* TQImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQImageCache.h; sourceTree = "<group>"; };
 		45F10B6115F4F5A70058E253 /* TQImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQImageCache.m; sourceTree = "<group>"; };
+		6DFEF989186312A2004EB774 /* GGFullscreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullscreenImageViewController.h; sourceTree = "<group>"; };
+		6DFEF98A186312A2004EB774 /* GGFullscreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGFullscreenImageViewController.m; sourceTree = "<group>"; };
 		DA1763F1157C6AA400C7AE95 /* RTActiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTActiveCell.h; sourceTree = "<group>"; };
 		DA1763F2157C6AA400C7AE95 /* RTActiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTActiveCell.m; sourceTree = "<group>"; };
 		DA1763F3157C6AA400C7AE95 /* RTActiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTActiveCell.xib; sourceTree = "<group>"; };
@@ -1063,6 +1066,8 @@
 				DAC74C9515D3568100A8F82E /* notify */,
 				DAC5D7BC1519D92A0041AE9A /* EGORefreshTableHeaderView.h */,
 				DAC5D7BD1519D92A0041AE9A /* EGORefreshTableHeaderView.m */,
+				6DFEF989186312A2004EB774 /* GGFullscreenImageViewController.h */,
+				6DFEF98A186312A2004EB774 /* GGFullscreenImageViewController.m */,
 				DABA75BC15045BB800521596 /* DataSingleton.h */,
 				DABA75BD15045BB800521596 /* DataSingleton.m */,
 				DACEB0A2150EEB20001D4A24 /* Tool.h */,
@@ -2156,6 +2161,7 @@
 				45F10B6215F4F5A70058E253 /* TQImageCache.m in Sources */,
 				DAF7AB2F1614183D005D464C /* AESCrypt.m in Sources */,
 				DAF7AB301614183D005D464C /* NSData+Base64.m in Sources */,
+				6DFEF98B186312A2004EB774 /* GGFullscreenImageViewController.m in Sources */,
 				DAF7AB311614183D005D464C /* NSData+CommonCrypto.m in Sources */,
 				DAF7AB321614183D005D464C /* NSString+Base64.m in Sources */,
 			);
@@ -2247,7 +2253,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "oschina/oschina-Prefix.pch";
 				INFOPLIST_FILE = "oschina/oschina-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/Users/wangjun/Downloads/JimLiu-WeiboSDK-01bcd6e 2/SinaWeiboOAuthDemo/Classes/WeiboEngine\"",
@@ -2267,7 +2273,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "oschina/oschina-Prefix.pch";
 				INFOPLIST_FILE = "oschina/oschina-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/Users/wangjun/Downloads/JimLiu-WeiboSDK-01bcd6e 2/SinaWeiboOAuthDemo/Classes/WeiboEngine\"",

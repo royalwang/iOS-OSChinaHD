@@ -27,6 +27,13 @@
     self.navigationItem.titleView = self.segmentSearch;
     
     [_searchBar becomeFirstResponder];
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 - (void)viewDidUnload

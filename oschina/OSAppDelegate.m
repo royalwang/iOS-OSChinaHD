@@ -61,6 +61,7 @@
                          profileNav,
                          settingNav,
                          nil];
+    
     //初始化
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.tabBarController;

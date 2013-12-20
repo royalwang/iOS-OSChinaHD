@@ -43,6 +43,13 @@
     [self addChildViewController:self.softwareView];
     [self.view addSubview:self.softwareTypeView.view];
     [self.view addSubview:self.softwareView.view];
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 -(void)segmentAction:(id)sender
 {

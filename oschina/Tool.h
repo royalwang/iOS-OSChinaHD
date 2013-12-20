@@ -23,6 +23,7 @@
 #import "Tweet.h"
 #import "TweetDetail.h"
 #import "TweetBase2.h"
+#import "GGFullscreenImageViewController.h"
 #import "OSCNotice.h"
 #import "SoftwareDetail.h"
 #import "BlogDetail.h"

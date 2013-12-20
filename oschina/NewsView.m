@@ -31,6 +31,13 @@
     self.tableNews.backgroundColor = [Tool getBackgroundColor];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshed:) name:Notification_TabClick object:nil];
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)refreshed:(NSNotification *)notification
 {
@@ -285,6 +292,14 @@
     [self reloadTableViewDataSource];
     [self refresh];
 }
+//2013.12.18song. tableView添加上拉更新
+- (void)egoRefreshTableHeaderDidTriggerToBottom
+{
+    if (!isLoading) {
+        [self performSelector:@selector(reload:)];
+    }
+}
+
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
 {
     return _reloading;

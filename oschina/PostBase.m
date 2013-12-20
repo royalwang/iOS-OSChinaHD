@@ -48,11 +48,25 @@
     self.postsView.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     //添加发布动弹的按钮
-    UIBarButtonItem *btnPubPost = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:nil];
-    btnPubPost.title = @"";
-    btnPubPost.image = [UIImage imageNamed:@"question24"];
-    [btnPubPost setAction:@selector(clickPubPost:)];
+//    UIBarButtonItem *btnPubPost = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:nil];
+//    btnPubPost.title = @"";
+//    btnPubPost.image = [UIImage imageNamed:@"question24"];
+//    [btnPubPost setAction:@selector(clickPubPost:)];
+//    self.navigationItem.rightBarButtonItem = btnPubPost;
+    
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [btn addTarget:self action:@selector(clickPubPost:) forControlEvents:UIControlEventTouchUpInside];
+    [btn setImage:[UIImage imageNamed:@"question24"] forState:UIControlStateNormal];
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0,0, 0, 0);
+    UIBarButtonItem *btnPubPost = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = btnPubPost;
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)clickPubPost:(id)sender
 {

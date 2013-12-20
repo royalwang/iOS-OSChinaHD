@@ -42,6 +42,13 @@
               [[SettingModel alloc] initWith:@"开发平台" andImg:nil andTag:0 andTitle2:nil],nil];
     self.tableInfo.delegate = self;
     
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     //加载
     [self getUserInfo];
 }

@@ -46,10 +46,25 @@
     self.twitterView.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     //添加发布动弹的按钮
-    UIBarButtonItem *btnPubTweet = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:nil];
-    btnPubTweet.image = [UIImage imageNamed:@"tweet24"];
-    [btnPubTweet setAction:@selector(clickPubTweet:)];
+//    UIBarButtonItem *btnPubTweet = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:nil];
+//    btnPubTweet.image = [UIImage imageNamed:@"tweet24"];
+//    [btnPubTweet setAction:@selector(clickPubTweet:)];
+//    self.navigationItem.rightBarButtonItem = btnPubTweet;
+    
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [btn addTarget:self action:@selector(clickPubTweet:) forControlEvents:UIControlEventTouchUpInside];
+    [btn setImage:[UIImage imageNamed:@"tweet24"] forState:UIControlStateNormal];
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0,0, 0, 0);
+    UIBarButtonItem *btnPubTweet = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = btnPubTweet;
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+
 }
 - (void)clickPubTweet:(id)sender
 {

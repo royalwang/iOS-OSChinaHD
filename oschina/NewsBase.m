@@ -48,10 +48,25 @@
     self.newsView.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     //添加发布动弹的按钮
-    UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:nil];
-    btnSearch.image = [UIImage imageNamed:@"searchWhite"];
-    [btnSearch setAction:@selector(clickSearch:)];
+//    UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleBordered target:self action:nil];
+//    btnSearch.image = [UIImage imageNamed:@"searchWhite"];
+//    [btnSearch setAction:@selector(clickSearch:)];
+//    self.navigationItem.rightBarButtonItem = btnSearch;
+//    
+//    
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [btn addTarget:self action:@selector(clickSearch:) forControlEvents:UIControlEventTouchUpInside];
+    [btn setImage:[UIImage imageNamed:@"searchWhite"] forState:UIControlStateNormal];
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0,0, 0, 0);
+    UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = btnSearch;
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)clickSearch:(id)sender
 {

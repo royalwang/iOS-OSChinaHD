@@ -47,6 +47,13 @@
         self.navigationItem.rightBarButtonItem = btnHome;
     }
     _iconCache = [[TQImageCache alloc] initWithCachePath:@"icons" andMaxMemoryCacheNumber:50];
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -360,6 +367,15 @@
     [self reloadTableViewDataSource];
     [self refresh];
 }
+
+//2013.12.18song. tableView添加上拉更新
+- (void)egoRefreshTableHeaderDidTriggerToBottom
+{
+    if (!isLoading) {
+        [self performSelector:@selector(reload:)];
+    }
+}
+
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
 {
     return _reloading;

@@ -18,7 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //初始化
     allCount = 0;
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
@@ -40,9 +40,27 @@
     //开始加载
 //    [self reload:YES];
     _iconCache = [[TQImageCache alloc] initWithCachePath:@"icons" andMaxMemoryCacheNumber:50];
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+
+
 }
 - (void)viewDidAppear:(BOOL)animated
 {
+    
+
+
+    
     if (isInitialize == NO) {
         [self reload:YES];
         isInitialize = YES;
@@ -274,6 +292,7 @@
                         break;
                     }
                 }
+                //点击事件初始化
                 UITap *singleTap = [[UITap alloc] initWithTarget:self action:@selector(clickImg:)];
                 [cell.img addGestureRecognizer:singleTap];
                 UITap *tweetTap = [[UITap alloc] initWithTarget:self action:@selector(clickTweet:)];
@@ -281,6 +300,7 @@
             }
             cell.img.image = [UIImage imageNamed:@"avatar_loading.jpg"];
             Tweet *t = [tweets objectAtIndex:[indexPath row]];
+
             if (t) 
             {
                 if ([cell.img.gestureRecognizers count] > 0) {
@@ -366,7 +386,7 @@
         {
             if ([Config Instance].isNetworkRunning) {
                 return [DataSingleton.Instance getLoadMoreCell:tableView andIsLoadOver:isLoadOver andLoadOverString:@"" andLoadingString:(isLoading ? loadingTip : loadNext20Tip) andIsLoading:isLoading];
-            }
+            }//修改下面20条这行
             else {
                 return [DataSingleton.Instance getLoadMoreCell:tableView andIsLoadOver:isLoadOver andLoadOverString:noNetworkTip andLoadingString:noNetworkTip andIsLoading:isLoading];
             }
@@ -392,13 +412,16 @@
     }
 }
 //点击动弹图片事件
-- (void)clickTweet:(id)sender
+- (void)clickTweet:(id)sender 
 {
+    
     UITap *tap = (UITap *)sender;
     if (tap) {
         [Tool pushTweetImgDetail:tap.tagString andParent:self];
     }
 }
+
+//点击其中一行触发的方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -414,6 +437,7 @@
         if (t) {
             
             TweetBase2 * parent = (TweetBase2 *)self.parentViewController;
+            [parent wantsFullScreenLayout];
             self.parentViewController.title = [parent getSegmentTitle];
             self.parentViewController.tabBarItem.title = @"动弹";
             
@@ -438,7 +462,9 @@
     CGRect newRect = CGRectMake(rect.origin.x, rect.origin.y - tableTweets.contentOffset.y, rect.size.width, rect.size.height);
     [menu setTargetRect:newRect inView:[self view]];
     [menu setMenuVisible: YES animated: YES];    
-}  
+}
+
+
 - (void)deleteRow:(UITableViewCell *)cell
 {
     NSIndexPath *path = [tableTweets indexPathForCell:cell];
@@ -511,10 +537,24 @@
     [self reloadTableViewDataSource];
     [self refresh];
 }
+
+
+//2013.12.18song. tableView添加上拉更新
+- (void)egoRefreshTableHeaderDidTriggerToBottom
+{
+    if (!isLoading) {
+        [self performSelector:@selector(reload:)];
+    }
+}
+
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
 {
     return _reloading;
 }
+
+
+
+
 - (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view
 {
     return [NSDate date];
