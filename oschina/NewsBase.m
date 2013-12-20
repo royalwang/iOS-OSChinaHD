@@ -56,7 +56,10 @@
 //    
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
     [btn addTarget:self action:@selector(clickSearch:) forControlEvents:UIControlEventTouchUpInside];
-    [btn setImage:[UIImage imageNamed:@"searchWhite"] forState:UIControlStateNormal];
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+        [btn setImage:[UIImage imageNamed:@"searchBlue"] forState:UIControlStateNormal];
+    else
+        [btn setImage:[UIImage imageNamed:@"searchWhite"] forState:UIControlStateNormal];
     btn.imageEdgeInsets = UIEdgeInsetsMake(0,0, 0, 0);
     UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = btnSearch;

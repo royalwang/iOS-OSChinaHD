@@ -25,6 +25,10 @@
     [Tool roundTextView:txtContent];
     lblHeadTip.font = [UIFont boldSystemFontOfSize:17.0];
     UIToolbar *customToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 146, 44.01)];
+    [customToolbar setBackgroundImage:[UIImage new] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [customToolbar setShadowImage:[UIImage new] forToolbarPosition:UIToolbarPositionAny];
+    customToolbar.clipsToBounds = YES;
+    
     NSMutableArray *rightBarButtonArray = [[NSMutableArray alloc] initWithCapacity:2];
 
     UIBarButtonItem *btnPic = [[UIBarButtonItem alloc] initWithTitle:@"＋图片" style:UIBarButtonItemStyleBordered target:self action:@selector(clickImgs:)];

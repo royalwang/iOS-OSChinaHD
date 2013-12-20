@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		45F10B6215F4F5A70058E253 /* TQImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F10B6115F4F5A70058E253 /* TQImageCache.m */; };
 		6DFEF98B186312A2004EB774 /* GGFullscreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFEF98A186312A2004EB774 /* GGFullscreenImageViewController.m */; };
+		6DFEFD4C18644DE2004EB774 /* questionBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEFD4A18644DE2004EB774 /* questionBlue@2x.png */; };
+		6DFEFD4D18644DE2004EB774 /* searchBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEFD4B18644DE2004EB774 /* searchBlue@2x.png */; };
+		6DFEFD4F18644E43004EB774 /* tweetBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEFD4E18644E43004EB774 /* tweetBlue@2x.png */; };
 		DA1763F4157C6AA400C7AE95 /* RTActiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1763F2157C6AA400C7AE95 /* RTActiveCell.m */; };
 		DA1763F5157C6AA400C7AE95 /* RTActiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1763F3157C6AA400C7AE95 /* RTActiveCell.xib */; };
 		DA1763F9157C6BCF00C7AE95 /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1763F8157C6BCF00C7AE95 /* RTLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -368,6 +371,9 @@
 		45F10B6115F4F5A70058E253 /* TQImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQImageCache.m; sourceTree = "<group>"; };
 		6DFEF989186312A2004EB774 /* GGFullscreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullscreenImageViewController.h; sourceTree = "<group>"; };
 		6DFEF98A186312A2004EB774 /* GGFullscreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGFullscreenImageViewController.m; sourceTree = "<group>"; };
+		6DFEFD4A18644DE2004EB774 /* questionBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "questionBlue@2x.png"; sourceTree = "<group>"; };
+		6DFEFD4B18644DE2004EB774 /* searchBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBlue@2x.png"; sourceTree = "<group>"; };
+		6DFEFD4E18644E43004EB774 /* tweetBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tweetBlue@2x.png"; sourceTree = "<group>"; };
 		DA1763F1157C6AA400C7AE95 /* RTActiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTActiveCell.h; sourceTree = "<group>"; };
 		DA1763F2157C6AA400C7AE95 /* RTActiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTActiveCell.m; sourceTree = "<group>"; };
 		DA1763F3157C6AA400C7AE95 /* RTActiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTActiveCell.xib; sourceTree = "<group>"; };
@@ -1228,6 +1234,9 @@
 		DAC77D5515CFC92100AC22FF /* face */ = {
 			isa = PBXGroup;
 			children = (
+				6DFEFD4E18644E43004EB774 /* tweetBlue@2x.png */,
+				6DFEFD4A18644DE2004EB774 /* questionBlue@2x.png */,
+				6DFEFD4B18644DE2004EB774 /* searchBlue@2x.png */,
 				DAF2CF0515D111180048B521 /* k.png */,
 				DAF2CEFF15D0FF820048B521 /* faceIcon.png */,
 				DAC77D5615CFC94C00AC22FF /* 001@2x.png */,
@@ -1791,6 +1800,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				TargetAttributes = {
+					DACC687514FF8049006F7B6A = {
+						DevelopmentTeam = WSUBE85MHP;
+					};
+				};
 			};
 			buildConfigurationList = DACC687014FF8048006F7B6A /* Build configuration list for PBXProject "oschina" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1917,6 +1931,7 @@
 				DAC77DC615CFC94C00AC22FF /* 010@2x.png in Resources */,
 				DAC77DC715CFC94C00AC22FF /* 011@2x.png in Resources */,
 				DAC77DC815CFC94C00AC22FF /* 012@2x.png in Resources */,
+				6DFEFD4F18644E43004EB774 /* tweetBlue@2x.png in Resources */,
 				DAC77DC915CFC94C00AC22FF /* 013@2x.png in Resources */,
 				DAC77DCA15CFC94C00AC22FF /* 014@2x.png in Resources */,
 				DAC77DCB15CFC94C00AC22FF /* 015@2x.png in Resources */,
@@ -1944,11 +1959,13 @@
 				DAC77DE115CFC94C00AC22FF /* 037@2x.png in Resources */,
 				DAC77DE215CFC94C00AC22FF /* 038@2x.png in Resources */,
 				DAC77DE315CFC94C00AC22FF /* 039@2x.png in Resources */,
+				6DFEFD4C18644DE2004EB774 /* questionBlue@2x.png in Resources */,
 				DAC77DE415CFC94C00AC22FF /* 040@2x.png in Resources */,
 				DAC77DE515CFC94C00AC22FF /* 041@2x.png in Resources */,
 				DAC77DE615CFC94C00AC22FF /* 042@2x.png in Resources */,
 				DAC77DE715CFC94C00AC22FF /* 043@2x.png in Resources */,
 				DAC77DE815CFC94C00AC22FF /* 044@2x.png in Resources */,
+				6DFEFD4D18644DE2004EB774 /* searchBlue@2x.png in Resources */,
 				DAC77DE915CFC94C00AC22FF /* 045@2x.png in Resources */,
 				DAC77DEA15CFC94C00AC22FF /* 046@2x.png in Resources */,
 				DAC77DEB15CFC94C00AC22FF /* 047@2x.png in Resources */,
@@ -2250,6 +2267,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "oschina/oschina-Prefix.pch";
 				INFOPLIST_FILE = "oschina/oschina-Info.plist";
@@ -2270,6 +2288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "oschina/oschina-Prefix.pch";
 				INFOPLIST_FILE = "oschina/oschina-Info.plist";
