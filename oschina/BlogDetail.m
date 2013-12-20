@@ -73,6 +73,13 @@
             [Tool ToastNotification:@"错误 网络连接故障" andView:self.view andLoading:NO andIsBottom:NO];
         }
     }
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.parentViewController.edgesForExtendedLayout = UIRectEdgeNone;
+        self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
+    }
 }
 - (void)clickFavorite:(id)sender
 {

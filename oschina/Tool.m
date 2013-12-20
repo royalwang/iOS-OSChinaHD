@@ -17,6 +17,7 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     activityView.frame = CGRectMake(121, 80, 37, 37);
     [progressAlert addSubview:activityView];
     [activityView startAnimating];
+    
     return progressAlert;
 }
 + (ApiError *)getApiError:(ASIHTTPRequest *)request
@@ -307,6 +308,14 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     tweetTab.viewControllers = [NSArray arrayWithObjects:tweetDetail,tweetComments,nil];
     tweetTab.hidesBottomBarWhenPushed = YES;
     [navController pushViewController:tweetTab animated:YES];
+//    //适配iOS7uinavigationbar遮挡tableView的问题
+//    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+//    {
+//        navController.edgesForExtendedLayout = UIRectEdgeNone;
+//        navController.automaticallyAdjustsScrollViewInsets = NO;
+//    }
+    
+    
 }
 + (void)pushUserDetail:(int)uid andNavController:(UINavigationController *)navController
 {
@@ -335,6 +344,13 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     userTab.viewControllers = [NSArray arrayWithObjects:av,bv, nil];
    
     [navController pushViewController:userTab animated:YES];
+//    //适配iOS7uinavigationbar遮挡tableView的问题
+//    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+//    {
+//        navController.edgesForExtendedLayout = UIRectEdgeNone;
+//        navController.automaticallyAdjustsScrollViewInsets = NO;
+//    }
+    
 }
 + (void)pushUserDetailWithName:(NSString *)name andNavController:(UINavigationController *)navController
 {

@@ -22,6 +22,14 @@
     UIBarButtonItem *btnComment = [[UIBarButtonItem alloc] initWithTitle:@"发表" style:UIBarButtonItemStyleBordered target:self action:@selector(clickComment:)];
     self.parentViewController.navigationItem.rightBarButtonItem = btnComment;
     self.view.backgroundColor = [Tool getBackgroundColor];
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.parentViewController.edgesForExtendedLayout = UIRectEdgeNone;
+        self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
+    }
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -37,7 +45,8 @@
     //决定开关
     [self.switchToZone setOn:[Config Instance].getIsPostToMyZone];
     
-    if (IS_IPHONE_5) {
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0 || IS_IPHONE_5)
+    {
         self.txtComment.frame = CGRectMake(10, 365, 300, 50);
     }
     
@@ -113,7 +122,7 @@
     if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
     {
         self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.automaticallyAdjustsScrollViewInsets = NO;
+        self.automaticallyAdjustsScrollViewInsets = YES;
     }
 }
 - (void)clickComment:(id)sender

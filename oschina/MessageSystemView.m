@@ -69,13 +69,13 @@
     if (self.headTitle) {
         self.navigationItem.title = self.headTitle;
     }
+
     //适配iOS7uinavigationbar遮挡tableView的问题
     if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
     {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.automaticallyAdjustsScrollViewInsets = NO;
+        self.parentViewController.edgesForExtendedLayout = UIRectEdgeNone;
+        self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
     }
-
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -115,6 +115,7 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
 }
 - (void)viewDidUnload
 {

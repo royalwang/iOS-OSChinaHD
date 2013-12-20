@@ -426,6 +426,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     int row = [indexPath row];
+    //点击“下面20条”
     if (row >= [tweets count]) {
         //启动刷新
         if (!isLoading) {
@@ -437,7 +438,7 @@
         if (t) {
             
             TweetBase2 * parent = (TweetBase2 *)self.parentViewController;
-            [parent wantsFullScreenLayout];
+            //[parent wantsFullScreenLayout];
             self.parentViewController.title = [parent getSegmentTitle];
             self.parentViewController.tabBarItem.title = @"动弹";
             

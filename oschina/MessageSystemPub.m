@@ -50,13 +50,13 @@
     self.view.backgroundColor = [Tool getBackgroundColor];
     [txtContent becomeFirstResponder];
     self.txtContent.delegate = self;
+
     //适配iOS7uinavigationbar遮挡tableView的问题
     if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
     {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.automaticallyAdjustsScrollViewInsets = NO;
+        self.parentViewController.edgesForExtendedLayout = UIRectEdgeNone;
+        self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
     }
-    
 
 }
 - (void)viewDidAppear:(BOOL)animated
