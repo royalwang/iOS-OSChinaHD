@@ -43,6 +43,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //适配iOS7 UINavigationbar遮挡
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.navigationController.navigationBar.translucent = NO;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
     self.navigationItem.title = @"好友列表";
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
     friends = [[NSMutableArray alloc] initWithCapacity:0];
