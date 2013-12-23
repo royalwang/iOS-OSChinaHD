@@ -115,7 +115,10 @@
         case -2:
         case -1:
         {
-            NSLog(@"后台发送动弹图片  失败  %@ %d",error.errorMessage, error.errorCode);
+            NSLog(@"更新头像失败  %@ %d",error.errorMessage, error.errorCode);
+            NSString *s = [NSString stringWithFormat:@"更新头像失败  %@ ",error.errorMessage];
+            UIView *v = [UIApplication sharedApplication].keyWindow;
+            [Tool ToastNotification:s andView:v andLoading:NO andIsBottom:YES];
         }
             break;
     }

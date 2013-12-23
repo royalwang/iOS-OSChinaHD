@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		45F10B6215F4F5A70058E253 /* TQImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F10B6115F4F5A70058E253 /* TQImageCache.m */; };
+		6DB669351868046E00CE980D /* PECropRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6692E1868046E00CE980D /* PECropRectView.m */; };
+		6DB669361868046E00CE980D /* PECropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB669301868046E00CE980D /* PECropView.m */; };
+		6DB669371868046E00CE980D /* PECropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB669321868046E00CE980D /* PECropViewController.m */; };
+		6DB669381868046E00CE980D /* PEResizeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB669341868046E00CE980D /* PEResizeControl.m */; };
+		6DB6693B1868049800CE980D /* UIImage+PECrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6693A1868049800CE980D /* UIImage+PECrop.m */; };
 		6DFEF98B186312A2004EB774 /* GGFullscreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFEF98A186312A2004EB774 /* GGFullscreenImageViewController.m */; };
 		6DFEFD4C18644DE2004EB774 /* questionBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEFD4A18644DE2004EB774 /* questionBlue@2x.png */; };
 		6DFEFD4D18644DE2004EB774 /* searchBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEFD4B18644DE2004EB774 /* searchBlue@2x.png */; };
@@ -369,6 +374,16 @@
 /* Begin PBXFileReference section */
 		45F10B6015F4F5A70058E253 /* TQImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQImageCache.h; sourceTree = "<group>"; };
 		45F10B6115F4F5A70058E253 /* TQImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQImageCache.m; sourceTree = "<group>"; };
+		6DB6692D1868046E00CE980D /* PECropRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropRectView.h; sourceTree = "<group>"; };
+		6DB6692E1868046E00CE980D /* PECropRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PECropRectView.m; sourceTree = "<group>"; };
+		6DB6692F1868046E00CE980D /* PECropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropView.h; sourceTree = "<group>"; };
+		6DB669301868046E00CE980D /* PECropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PECropView.m; sourceTree = "<group>"; };
+		6DB669311868046E00CE980D /* PECropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropViewController.h; sourceTree = "<group>"; };
+		6DB669321868046E00CE980D /* PECropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PECropViewController.m; sourceTree = "<group>"; };
+		6DB669331868046E00CE980D /* PEResizeControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEResizeControl.h; sourceTree = "<group>"; };
+		6DB669341868046E00CE980D /* PEResizeControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEResizeControl.m; sourceTree = "<group>"; };
+		6DB669391868049800CE980D /* UIImage+PECrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PECrop.h"; sourceTree = "<group>"; };
+		6DB6693A1868049800CE980D /* UIImage+PECrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PECrop.m"; sourceTree = "<group>"; };
 		6DFEF989186312A2004EB774 /* GGFullscreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullscreenImageViewController.h; sourceTree = "<group>"; };
 		6DFEF98A186312A2004EB774 /* GGFullscreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGFullscreenImageViewController.m; sourceTree = "<group>"; };
 		6DFEFD4A18644DE2004EB774 /* questionBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "questionBlue@2x.png"; sourceTree = "<group>"; };
@@ -897,6 +912,23 @@
 			name = cache;
 			sourceTree = "<group>";
 		};
+		6DB6692C186803F200CE980D /* PEPhotoCropEditor */ = {
+			isa = PBXGroup;
+			children = (
+				6DB669391868049800CE980D /* UIImage+PECrop.h */,
+				6DB6693A1868049800CE980D /* UIImage+PECrop.m */,
+				6DB6692D1868046E00CE980D /* PECropRectView.h */,
+				6DB6692E1868046E00CE980D /* PECropRectView.m */,
+				6DB6692F1868046E00CE980D /* PECropView.h */,
+				6DB669301868046E00CE980D /* PECropView.m */,
+				6DB669311868046E00CE980D /* PECropViewController.h */,
+				6DB669321868046E00CE980D /* PECropViewController.m */,
+				6DB669331868046E00CE980D /* PEResizeControl.h */,
+				6DB669341868046E00CE980D /* PEResizeControl.m */,
+			);
+			name = PEPhotoCropEditor;
+			sourceTree = "<group>";
+		};
 		DA16A7461562109A00A14D9D /* My */ = {
 			isa = PBXGroup;
 			children = (
@@ -1069,6 +1101,7 @@
 		DABA75BB15045B4400521596 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				6DB6692C186803F200CE980D /* PEPhotoCropEditor */,
 				DAC74C9515D3568100A8F82E /* notify */,
 				DAC5D7BC1519D92A0041AE9A /* EGORefreshTableHeaderView.h */,
 				DAC5D7BD1519D92A0041AE9A /* EGORefreshTableHeaderView.m */,
@@ -2053,10 +2086,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DB6693B1868049800CE980D /* UIImage+PECrop.m in Sources */,
 				DACC688714FF8049006F7B6A /* main.m in Sources */,
 				DACC688B14FF8049006F7B6A /* OSAppDelegate.m in Sources */,
 				DACC68C414FF8540006F7B6A /* ASIAuthenticationDialog.m in Sources */,
 				DACC68C514FF8540006F7B6A /* ASIDataCompressor.m in Sources */,
+				6DB669381868046E00CE980D /* PEResizeControl.m in Sources */,
 				DACC68C614FF8540006F7B6A /* ASIDataDecompressor.m in Sources */,
 				DACC68C714FF8540006F7B6A /* ASIDownloadCache.m in Sources */,
 				DACC68C814FF8540006F7B6A /* ASIFormDataRequest.m in Sources */,
@@ -2097,6 +2132,7 @@
 				DACEB0A4150EEB20001D4A24 /* Tool.m in Sources */,
 				DACEB0A9150EF1FD001D4A24 /* MessageSystemView.m in Sources */,
 				DACEB0AE150EF2A5001D4A24 /* MessageSystemPub.m in Sources */,
+				6DB669371868046E00CE980D /* PECropViewController.m in Sources */,
 				DA3FF885150F218C009A5C86 /* NewsCell.m in Sources */,
 				DA3FF88B150F3292009A5C86 /* MessageCell.m in Sources */,
 				DA3FF890150F3320009A5C86 /* PubMessage.m in Sources */,
@@ -2115,6 +2151,7 @@
 				DAC5D7BE1519D92A0041AE9A /* EGORefreshTableHeaderView.m in Sources */,
 				DAC7AE98152004000017491E /* EGOCache.m in Sources */,
 				DAC7AE99152004000017491E /* EGOImageButton.m in Sources */,
+				6DB669351868046E00CE980D /* PECropRectView.m in Sources */,
 				DAC7AE9A152004000017491E /* EGOImageLoadConnection.m in Sources */,
 				DAC7AE9B152004000017491E /* EGOImageLoader.m in Sources */,
 				DAC7AE9C152004000017491E /* EGOImageView.m in Sources */,
@@ -2169,6 +2206,7 @@
 				DAB06CA715DA369D007311E4 /* AFPropertyListRequestOperation.m in Sources */,
 				DAB06CA815DA369D007311E4 /* AFURLConnectionOperation.m in Sources */,
 				DAB06CA915DA369D007311E4 /* AFXMLRequestOperation.m in Sources */,
+				6DB669361868046E00CE980D /* PECropView.m in Sources */,
 				DAB06CAA15DA369D007311E4 /* UIImageView+AFNetworking.m in Sources */,
 				DAB06CAD15DA3842007311E4 /* AFOSCClient.m in Sources */,
 				DA28E3CA15E721FE003FF524 /* RegexKitLite.m in Sources */,

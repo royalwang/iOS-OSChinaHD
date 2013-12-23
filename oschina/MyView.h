@@ -13,12 +13,13 @@
 #import "MyInfoCell.h"
 #import "MyPortraitCell.h"
 #import "SSPhotoCropperViewController.h"
-
-@interface MyView : UIViewController<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,SSPhotoCropperDelegate>
+#import "PECropViewController.h"
+@interface MyView : UIViewController<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,SSPhotoCropperDelegate,UINavigationControllerDelegate>
 {
     NSArray * first;
     NSArray * second;
     NSArray * third;
+    
     
     int fansCount;
     int followersCount;

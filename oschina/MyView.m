@@ -81,30 +81,57 @@
         [self presentModalViewController:imgPicker animated:YES];
     }
 }
+
+//久头像截图方式
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+//{
+//    [self dismissModalViewControllerAnimated:YES];
+//    //添加到集合中
+//    UIImage * imgData = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    UIImage * photo = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    SSPhotoCropperViewController *photoCropper =
+//    [[SSPhotoCropperViewController alloc] initWithPhoto:photo
+//                                               delegate:self
+//                                                 uiMode:SSPCUIModePresentedAsModalViewController
+//                                        showsInfoButton:NO];
+//    [photoCropper setMinZoomScale:0.25f];
+//    [photoCropper setMaxZoomScale:4.0f];
+//    [self.navigationController pushViewController:photoCropper animated:YES];
+//}
+//- (void) photoCropper:(SSPhotoCropperViewController *)photoCropper
+//         didCropPhoto:(UIImage *)photo
+//{
+//    [self.navigationController popViewControllerAnimated:YES];
+//    
+//    //对photo进行处理
+//    [[MyThread Instance] startUpdatePortrait:UIImageJPEGRepresentation(photo, 0.75f)];
+//    [Tool ToastNotification:@"正在上传您的头像" andView:self.view andLoading:YES andIsBottom:NO];
+//}
+
+
+//2013.12.23 by.song 新头像截图方式
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     //添加到集合中
-    UIImage * imgData = [info objectForKey:UIImagePickerControllerOriginalImage];
     UIImage * photo = [info objectForKey:UIImagePickerControllerOriginalImage];
-    SSPhotoCropperViewController *photoCropper =
-    [[SSPhotoCropperViewController alloc] initWithPhoto:photo
-                                               delegate:self
-                                                 uiMode:SSPCUIModePresentedAsModalViewController
-                                        showsInfoButton:NO];
-    [photoCropper setMinZoomScale:0.25f];
-    [photoCropper setMaxZoomScale:4.0f];
-    [self.navigationController pushViewController:photoCropper animated:YES];
+    
+    PECropViewController *controller = [[PECropViewController alloc] init];
+    controller.delegate = self;
+    controller.image = photo;
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
-- (void) photoCropper:(SSPhotoCropperViewController *)photoCropper
-         didCropPhoto:(UIImage *)photo
+- (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage
 {
     [self.navigationController popViewControllerAnimated:YES];
     
     //对photo进行处理
-    [[MyThread Instance] startUpdatePortrait:UIImageJPEGRepresentation(photo, 0.75f)];
+    [[MyThread Instance] startUpdatePortrait:UIImageJPEGRepresentation(croppedImage, 0.75f)];
     [Tool ToastNotification:@"正在上传您的头像" andView:self.view andLoading:YES andIsBottom:NO];
 }
+
+
 
 - (void) photoCropperDidCancel:(SSPhotoCropperViewController *)photoCropper
 {
