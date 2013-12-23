@@ -28,12 +28,7 @@
     }
     [friends removeAllObjects];
     
-    //适配iOS7uinavigationbar遮挡tableView的问题
-    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
-    {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+
 }
 
 #pragma mark - View lifecycle
@@ -71,6 +66,14 @@
     
     [self.segement setTitle:[NSString stringWithFormat:@"我关注的 %d",self.followersCount] forSegmentAtIndex:0];
     [self.segement setTitle:[NSString stringWithFormat:@"所有粉丝 %d",self.fansCount] forSegmentAtIndex:1];
+    
+    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 - (void)viewDidUnload
 {

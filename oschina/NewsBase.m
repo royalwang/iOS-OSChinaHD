@@ -60,7 +60,7 @@
         [btn setImage:[UIImage imageNamed:@"searchBlue"] forState:UIControlStateNormal];
     else
         [btn setImage:[UIImage imageNamed:@"searchWhite"] forState:UIControlStateNormal];
-    btn.imageEdgeInsets = UIEdgeInsetsMake(0,0, 0, 0);
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0,10, 0, -10);
     UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = btnSearch;
     
