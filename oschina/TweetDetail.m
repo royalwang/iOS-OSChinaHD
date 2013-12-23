@@ -23,12 +23,14 @@
     self.parentViewController.navigationItem.rightBarButtonItem = btnComment;
     self.view.backgroundColor = [Tool getBackgroundColor];
     
-    //适配iOS7uinavigationbar遮挡tableView的问题
-    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
-    {
-        self.parentViewController.edgesForExtendedLayout = UIRectEdgeNone;
-        self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
-    }
+
+//    //适配iOS7uinavigationbar遮挡tableView的问题
+//    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+//    {
+//        self.parentViewController.edgesForExtendedLayout = UIRectEdgeNone;
+//        self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
+//    }
+    
     
 }
 - (void)didReceiveMemoryWarning
@@ -47,7 +49,7 @@
     
     if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0 || IS_IPHONE_5)
     {
-        self.txtComment.frame = CGRectMake(10, 365, 300, 50);
+        self.txtComment.frame = CGRectMake(2, 403, 316, 50);
     }
     
     self.title = @"动弹详情";
@@ -121,9 +123,10 @@
     //适配iOS7uinavigationbar遮挡tableView的问题
     if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
     {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.automaticallyAdjustsScrollViewInsets = YES;
+        self.parentViewController.edgesForExtendedLayout = UIRectEdgeNone;
+        self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
     }
+
 }
 - (void)clickComment:(id)sender
 {

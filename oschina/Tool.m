@@ -305,16 +305,16 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     tweetComments.catalog = 3;
     tweetComments.parentID = tweet._id;
     
+    
     tweetTab.viewControllers = [NSArray arrayWithObjects:tweetDetail,tweetComments,nil];
     tweetTab.hidesBottomBarWhenPushed = YES;
     [navController pushViewController:tweetTab animated:YES];
-//    //适配iOS7uinavigationbar遮挡tableView的问题
-//    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
-//    {
-//        navController.edgesForExtendedLayout = UIRectEdgeNone;
-//        navController.automaticallyAdjustsScrollViewInsets = NO;
-//    }
-    
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        navController.edgesForExtendedLayout = UIRectEdgeNone;
+        navController.automaticallyAdjustsScrollViewInsets = NO;
+    }
     
 }
 + (void)pushUserDetail:(int)uid andNavController:(UINavigationController *)navController
