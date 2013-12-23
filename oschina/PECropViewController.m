@@ -68,6 +68,7 @@ static inline NSString *PELocalizedString(NSString *key, NSString *comment)
 //    self.navigationController.toolbarHidden = NO;
 //    
     self.cropView.image = self.image;
+    [Tool ToastNotification:@"截取图片尽可能为正方形以获得最佳效果" andView:self.view andLoading:NO andIsBottom:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
