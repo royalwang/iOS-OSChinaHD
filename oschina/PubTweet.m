@@ -35,8 +35,37 @@
     [rightBarButtonArray addObject:btnPic];
     UIBarButtonItem *btnPub = [[UIBarButtonItem alloc] initWithTitle:@"动弹一下" style:UIBarButtonItemStyleBordered target:self action:@selector(click_PubTweet:)];
     [rightBarButtonArray addObject:btnPub];
+//    UIButton *btnPicTemp = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+//    [btnPicTemp addTarget:self action:@selector(clickImgs:) forControlEvents:UIControlEventTouchUpInside];
+//    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+//    {
+//        btnPicTemp.imageEdgeInsets = UIEdgeInsetsMake(0,10, 0, -10);
+//    }
+//    
+//    UIBarButtonItem *btnPic = [[UIBarButtonItem alloc]initWithCustomView:btnPicTemp];
+//    [btnPic setTitle:@"＋图片"];
+//    [btnPic setStyle:UIBarButtonItemStyleBordered];
+//
+//    [rightBarButtonArray addObject:btnPic];
+//    
+//    UIButton *btnPubTemp = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+//    [btnPubTemp addTarget:self action:@selector(click_PubTweet:) forControlEvents:UIControlEventTouchUpInside];
+//    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+//    {
+//        btnPubTemp.imageEdgeInsets = UIEdgeInsetsMake(0,10, 0, -10);
+//    }
+//    UIBarButtonItem *btnPub = [[UIBarButtonItem alloc]initWithCustomView:btnPubTemp];
+//    [btnPub setTitle:@"动弹一下"];
+//    [rightBarButtonArray addObject:btnPub];
+    
+    if(IS_IOS7)
+        [customToolbar setFrame:CGRectMake(0, 0, 135,47)];
     [customToolbar setItems:rightBarButtonArray animated:NO];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:customToolbar];
+    
+    
+
+    
     
     self.view.backgroundColor = [Tool getBackgroundColor];
     

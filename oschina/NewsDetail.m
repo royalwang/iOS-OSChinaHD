@@ -28,12 +28,7 @@
     if (self.singleNews) {
         [self refreshFavorite:self.singleNews];
     }
-    //适配iOS7uinavigationbar遮挡tableView的问题
-    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
-    {
-        self.parentViewController.edgesForExtendedLayout = UIRectEdgeNone;
-        self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
-    }
+
 }
 - (void)clickFavorite:(id)sender
 {
@@ -140,6 +135,12 @@
             [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
         }
     }
+    //适配iOS7uinavigationbar遮挡tableView的问题
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
+        self.parentViewController.edgesForExtendedLayout = UIRectEdgeNone;
+        self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
+    }
 }
 
 - (void)viewDidUnload
@@ -181,6 +182,7 @@
         btnFavorite = [[UIBarButtonItem alloc] initWithTitle:n.favorite ? @"取消收藏" : @"收藏此文" style:UIBarButtonItemStyleBordered target:self action:@selector(clickFavorite:)];
         [right addObject:btnFavorite];
         [toolbar setItems:right animated:YES];
+        toolbar.clipsToBounds =YES;
         self.parentViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
     }
     else

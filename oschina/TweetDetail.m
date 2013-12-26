@@ -15,6 +15,8 @@
 @synthesize tweetID;
 @synthesize singleTweet;
 
+bool textViewIsEmpty;
+
 #pragma mark - 生命周期
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -47,11 +49,21 @@
     //决定开关
     [self.switchToZone setOn:[Config Instance].getIsPostToMyZone];
     
-    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0 || IS_IPHONE_5)
+    self.txtComment.text = @"点击此处输入评论";
+    self.txtComment.textColor = [UIColor lightGrayColor];
+    textViewIsEmpty =YES;
+    if(IS_IPHONE_5)
     {
         self.txtComment.frame = CGRectMake(2, 403, 316, 50);
+        self.webView.frame = CGRectMake(0, 0, 313, 375);
     }
-    
+    if(!IS_IPHONE_5)
+    {
+        self.txtComment.frame = CGRectMake(2, 315, 316, 50);
+        //if(IS_IOS7)
+            self.webView.frame = CGRectMake(0, 0, 313, 310);
+    }
+
     self.title = @"动弹详情";
     self.tabBarItem.title = @"动弹详情";
     self.tabBarItem.image = [UIImage imageNamed:@"tweet"];
@@ -223,17 +235,30 @@
 #pragma mark - 调整输入框与关闭键盘
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
+    if(textViewIsEmpty)
+    {
+        self.txtComment.text = @"";
+        self.txtComment.textColor = [UIColor blackColor];
+        textViewIsEmpty = NO;
+    }
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
-    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-166, self.view.frame.size.width, self.view.frame.size.height);
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-202, self.view.frame.size.width, self.view.frame.size.height);
     [UIView commitAnimations];
     return YES;
 }
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView
 {
+    if(self.txtComment.text.length == 0)
+    {
+        self.txtComment.textColor = [UIColor lightGrayColor];
+        self.txtComment.text = @"点击此处输入评论";
+        textViewIsEmpty = YES;
+    }
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
-    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+166, self.view.frame.size.width, self.view.frame.size.height);
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+202, self.view.frame.size.width, self.view.frame.size.height);
     [UIView commitAnimations];
     return YES;
 }

@@ -11,7 +11,6 @@
 @implementation Tweet
 
 @synthesize _id;
-@synthesize tweet;
 @synthesize author;
 @synthesize authorID;
 @synthesize fromNowOn;

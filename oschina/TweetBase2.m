@@ -54,10 +54,14 @@
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
     [btn addTarget:self action:@selector(clickPubTweet:) forControlEvents:UIControlEventTouchUpInside];
     if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+    {
         [btn setImage:[UIImage imageNamed:@"tweetBlue"] forState:UIControlStateNormal];
+        btn.imageEdgeInsets = UIEdgeInsetsMake(0,10, 0, -10);
+    }
+
     else
         [btn setImage:[UIImage imageNamed:@"tweet24"] forState:UIControlStateNormal];
-    btn.imageEdgeInsets = UIEdgeInsetsMake(0,10, 0, -10);
+    
     UIBarButtonItem *btnPubTweet = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = btnPubTweet;
     

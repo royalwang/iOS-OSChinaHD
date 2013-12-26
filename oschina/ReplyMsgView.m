@@ -20,6 +20,8 @@
 @synthesize webViewReply;
 @synthesize parentComment;
 
+bool textViewIsEmpty;
+
 #pragma mark - View lifecycle
 - (void)viewDidLoad
 {
@@ -36,18 +38,34 @@
         [Tool clearWebViewBackground:self.webViewReply];
     }
     
+    
+    
     self.view.backgroundColor = [Tool getBackgroundColor];
     
-    if (IS_IPHONE_5) {
-        self.webViewReply.frame = CGRectMake(0, 0, 320, 323+88);
-        self.txtReply.frame = CGRectMake(8, 332+88, 305, 46);
+    self.txtReply.text = @"点击此处输入评论";
+    self.txtReply.textColor = [UIColor lightGrayColor];
+    textViewIsEmpty =YES;
+    
+//    if (IS_IPHONE_5) {
+//        self.webViewReply.frame = CGRectMake(0, 0, 320, 323+88);
+//        self.txtReply.frame = CGRectMake(8, 332+88, 305, 46);
+//    }
+    
+    if(IS_IPHONE_5)
+    {
+        self.txtReply.frame = CGRectMake(2, 403, 316, 50);
     }
+    if(!IS_IPHONE_5)
+    {
+        self.txtReply.frame = CGRectMake(2, 328, 316, 50);
+    }
+
     
     //适配iOS7uinavigationbar遮挡tableView的问题
     if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
     {
-        self.parentViewController.edgesForExtendedLayout = UIRectEdgeNone;
-        self.parentViewController.automaticallyAdjustsScrollViewInsets = YES;
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = YES;
     }
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -61,6 +79,9 @@
         txtReply.text = commentBeforeLogin;
         commentBeforeLogin = nil;
     }
+    self.txtReply.text = @"点击此处输入评论";
+    self.txtReply.textColor = [UIColor lightGrayColor];
+    textViewIsEmpty =YES;
 }
 - (void)viewDidUnload
 {
@@ -215,6 +236,13 @@
 #pragma 调整输入框
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textField
 {
+    if(textViewIsEmpty)
+    {
+        self.txtReply.text = @"";
+        self.txtReply.textColor = [UIColor blackColor];
+        textViewIsEmpty = NO;
+    }
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-215, self.view.frame.size.width, self.view.frame.size.height);
@@ -223,11 +251,22 @@
 }
 -(BOOL)textViewShouldEndEditing:(UITextField *)textField
 {
+
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+215, self.view.frame.size.width, self.view.frame.size.height);
     [UIView commitAnimations];
     return YES;
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    if(self.txtReply.text.length == 0)
+    {
+        self.txtReply.textColor = [UIColor lightGrayColor];
+        self.txtReply.text = @"点击此处输入评论";
+        textViewIsEmpty = YES;
+    }
 }
 
 - (IBAction)clickDidOnExit:(id)sender {
