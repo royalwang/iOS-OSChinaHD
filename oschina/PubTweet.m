@@ -35,29 +35,7 @@
     [rightBarButtonArray addObject:btnPic];
     UIBarButtonItem *btnPub = [[UIBarButtonItem alloc] initWithTitle:@"动弹一下" style:UIBarButtonItemStyleBordered target:self action:@selector(click_PubTweet:)];
     [rightBarButtonArray addObject:btnPub];
-//    UIButton *btnPicTemp = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
-//    [btnPicTemp addTarget:self action:@selector(clickImgs:) forControlEvents:UIControlEventTouchUpInside];
-//    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
-//    {
-//        btnPicTemp.imageEdgeInsets = UIEdgeInsetsMake(0,10, 0, -10);
-//    }
-//    
-//    UIBarButtonItem *btnPic = [[UIBarButtonItem alloc]initWithCustomView:btnPicTemp];
-//    [btnPic setTitle:@"＋图片"];
-//    [btnPic setStyle:UIBarButtonItemStyleBordered];
-//
-//    [rightBarButtonArray addObject:btnPic];
-//    
-//    UIButton *btnPubTemp = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
-//    [btnPubTemp addTarget:self action:@selector(click_PubTweet:) forControlEvents:UIControlEventTouchUpInside];
-//    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
-//    {
-//        btnPubTemp.imageEdgeInsets = UIEdgeInsetsMake(0,10, 0, -10);
-//    }
-//    UIBarButtonItem *btnPub = [[UIBarButtonItem alloc]initWithCustomView:btnPubTemp];
-//    [btnPub setTitle:@"动弹一下"];
-//    [rightBarButtonArray addObject:btnPub];
-    
+
     if(IS_IOS7)
         [customToolbar setFrame:CGRectMake(0, 0, 135,47)];
     [customToolbar setItems:rightBarButtonArray animated:NO];
@@ -156,6 +134,7 @@
                                          ApiError * error = [Tool getApiError2:operation.responseString];
                                          if (error == nil) {
                                              [Tool ToastNotification:operation.responseString andView:self.view andLoading:NO andIsBottom:NO];
+
                                              return ;
                                          }
                                          switch (error.errorCode) {
@@ -167,6 +146,8 @@
                                                  self.txtContent.text = @"";
                                                  self.img.image = nil;
                                                  [self.navigationController popViewControllerAnimated:YES];
+                                                 UIView *v = [UIApplication sharedApplication].keyWindow;
+                                                 [Tool ToastNotification:[NSString stringWithFormat:@"动弹发布成功！"] andView:v andLoading:NO andIsBottom:YES];
                                              }
                                                  break;
                                              case 0:
@@ -187,6 +168,7 @@
     {
         [[MyThread Instance] startPubTweet:tweet andImg:UIImageJPEGRepresentation(self.img.image, 0.7f)];
         self.lblHeadTip.text = @"动弹后台发送中";
+        [self.navigationController popViewControllerAnimated:YES];
         return;
     }
     
