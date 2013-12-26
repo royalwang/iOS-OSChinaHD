@@ -58,6 +58,7 @@ bool textViewIsEmpty;
     if(!IS_IPHONE_5)
     {
         self.txtReply.frame = CGRectMake(2, 328, 316, 50);
+        
     }
 
     

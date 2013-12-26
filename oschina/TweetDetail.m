@@ -60,9 +60,11 @@ bool textViewIsEmpty;
     if(!IS_IPHONE_5)
     {
         self.txtComment.frame = CGRectMake(2, 315, 316, 50);
-        //if(IS_IOS7)
-            self.webView.frame = CGRectMake(0, 0, 313, 310);
+        self.webView.frame = CGRectMake(0, 0, 313, 310);
+        if(IS_IOS7)
+            self.webView.frame = CGRectMake(0, 0, 313, 375);
     }
+    
 
     self.title = @"动弹详情";
     self.tabBarItem.title = @"动弹详情";
