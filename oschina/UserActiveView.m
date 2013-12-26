@@ -470,7 +470,7 @@
 - (void)egoRefreshTableHeaderDidTriggerToBottom
 {
     if (!isLoading) {
-        [self performSelector:@selector(reload:)];
+        [self reload:NO andNoRefresh:YES];
     }
 }
 

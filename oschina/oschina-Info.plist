@@ -8,6 +8,11 @@
 	<string>开源中国</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Icon@2x</string>
+		<string>Icon</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>net.oschina.iosapp</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -16,26 +21,23 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.7.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIPrerenderedIcon</key>
+	<false/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array/>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UIPrerenderedIcon</key>
-	<false/>
-	<key>UIStatusBarHidden</key>
-	<true/>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>Icon@2x</string>
-		<string>Icon</string>
 	</array>
 </dict>
 </plist>

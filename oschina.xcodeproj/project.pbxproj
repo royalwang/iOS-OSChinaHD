@@ -2309,7 +2309,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "oschina/oschina-Prefix.pch";
 				INFOPLIST_FILE = "oschina/oschina-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/Users/wangjun/Downloads/JimLiu-WeiboSDK-01bcd6e 2/SinaWeiboOAuthDemo/Classes/WeiboEngine\"",
@@ -2330,14 +2330,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "oschina/oschina-Prefix.pch";
 				INFOPLIST_FILE = "oschina/oschina-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/Users/wangjun/Downloads/JimLiu-WeiboSDK-01bcd6e 2/SinaWeiboOAuthDemo/Classes/WeiboEngine\"",
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "C911E035-AA23-4231-B5ED-05323B132467";
 				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
 			};
