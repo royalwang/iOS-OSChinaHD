@@ -286,6 +286,7 @@
             cell = (TweetCell *)[tableView dequeueReusableCellWithIdentifier:TweetCellIdentifier];
             if (!cell) {
                 NSArray *objects = [[NSBundle mainBundle] loadNibNamed:@"TweetCell" owner:self options:nil];
+                
                 for (NSObject *o in objects) {
                     if ([o isKindOfClass:[TweetCell class]]) {
                         cell = (TweetCell *)o;
@@ -447,7 +448,7 @@
     }
 }
 
-#pragma mark - 删除某项动弹  
+
 - (void)showMenu:(id)cell
 {  
     Tweet * t = [tweets objectAtIndex:[tableTweets indexPathForCell:cell].row];
@@ -465,7 +466,7 @@
     [menu setMenuVisible: YES animated: YES];    
 }
 
-
+#pragma mark - 删除某项动弹
 - (void)deleteRow:(UITableViewCell *)cell
 {
     NSIndexPath *path = [tableTweets indexPathForCell:cell];
@@ -543,6 +544,7 @@
 //2013.12.18song. tableView添加上拉更新
 - (void)egoRefreshTableHeaderDidTriggerToBottom
 {
+
     if (!isLoading) {
         [self performSelector:@selector(reload:)];
     }

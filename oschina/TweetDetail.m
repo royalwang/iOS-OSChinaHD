@@ -64,7 +64,6 @@ bool textViewIsEmpty;
         if(IS_IOS7)
             self.webView.frame = CGRectMake(0, 0, 313, 375);
     }
-    
 
     self.title = @"动弹详情";
     self.tabBarItem.title = @"动弹详情";

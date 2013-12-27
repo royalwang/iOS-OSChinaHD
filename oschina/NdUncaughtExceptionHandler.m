@@ -15,6 +15,7 @@ NSString * applicationDocumentsDirectory()
 
 void UncaughtExceptionHandler(NSException * exception)
 {
+    
     NSArray * arr = [exception callStackSymbols];
     NSString * reason = [exception reason];
     NSString * name = [exception name];

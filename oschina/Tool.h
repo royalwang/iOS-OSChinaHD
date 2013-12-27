@@ -180,4 +180,6 @@
 
 + (NSString *)GenerateTags:(NSMutableArray *)tags;
 
++ (NSString *)MyRegularExpressions:(NSString *)url;
+
 @end

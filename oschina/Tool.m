@@ -120,7 +120,9 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
 + (NSString *)generateCommentDetail:(Comment *)comment
 {
     NSString *first = [NSString stringWithFormat:@"<div style='color:#0D6DA8;font-size:16px'>%@ 发表于%@</div>", comment.author, comment.pubDate];
-    NSString *second = [NSString stringWithFormat:@"<div style='font-size:15px;line-height:20px'>%@</div>",comment.content];
+
+    NSString *second = [NSString stringWithFormat:@"<div style='font-size:15px;line-height:20px'>%@</div>",[self MyRegularExpressions:comment.content]];
+
     
     NSString *three = @"";
     if ([comment.replies count]>0) {
@@ -344,12 +346,7 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     userTab.viewControllers = [NSArray arrayWithObjects:av,bv, nil];
    
     [navController pushViewController:userTab animated:YES];
-//    //适配iOS7uinavigationbar遮挡tableView的问题
-//    if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
-//    {
-//        navController.edgesForExtendedLayout = UIRectEdgeNone;
-//        navController.automaticallyAdjustsScrollViewInsets = NO;
-//    }
+
     
 }
 + (void)pushUserDetailWithName:(NSString *)name andNavController:(UINavigationController *)navController
@@ -383,7 +380,7 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     //判断是否包含 oschina.net 来确定是不是站内链接
     NSRange rng = [url rangeOfString:search];
     if (rng.length <= 0) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
         return NO;
     }
     //站内链接
@@ -563,6 +560,7 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
 }
 + (void)pushTweetImgDetail:(NSString *)img andParent:(UIViewController *)parent
 {
+    //原来的图片显示方法
 //    TweetImgDetail *imgDetail = [[TweetImgDetail alloc] init];
 //    imgDetail.imgHref = img;
 //    [parent presentModalViewController:imgDetail animated:YES];
@@ -1588,6 +1586,26 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
         }
         return result;
     }
+}
+
++ (NSString *)MyRegularExpressions:(NSString *)url
+{
+    //remove <script></script> from comment content
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<script[^>]*?>.*?</script>" options:NULL error:&error];
+    NSString *lowercaseString = [url lowercaseStringWithLocale:[NSLocale currentLocale]];
+    NSString *modifedContent = [regex stringByReplacingMatchesInString:lowercaseString options:0 range:NSMakeRange(0,[lowercaseString length]) withTemplate:@""];
+    
+    NSString *finalUrl = nil;
+    
+    if (modifedContent.length < lowercaseString.length)
+    {
+        finalUrl = modifedContent;
+    }else
+    {
+        finalUrl = url;
+    }
+    return finalUrl;
 }
 
 
