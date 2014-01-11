@@ -13,6 +13,11 @@
 @synthesize lblAuthor;
 @synthesize delegate;
 
+-(NSString *)reuseIdentifier
+{
+    return NewsCellIdentifier;
+}
+
 -(void)initGR
 {
     UILongPressGestureRecognizer *longPressGR = [[ UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
