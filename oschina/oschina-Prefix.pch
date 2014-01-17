@@ -121,7 +121,7 @@
 
 #define USERAGENT @"OSChina.NET/iOS/5.0"
 
-#define AppVersion @"1.7.0"
+#define AppVersion @"1.7.2"
 
 #ifdef DEBUG
 #define debugLog(...) NSLog(__VA_ARGS__)
