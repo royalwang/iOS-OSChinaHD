@@ -196,7 +196,7 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     [Tool analysis:[request.URL absoluteString] andNavController:self.parentViewController.navigationController];
-    if ([request.URL.absoluteString isEqualToString:@"about:blank"]) 
+    if ([request.URL.absoluteString isEqualToString:@"about:blank"])
     {
         return YES;
     }

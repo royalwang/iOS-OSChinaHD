@@ -380,7 +380,7 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     //判断是否包含 oschina.net 来确定是不是站内链接
     NSRange rng = [url rangeOfString:search];
     if (rng.length <= 0) {
-        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
         return NO;
     }
     //站内链接
@@ -491,6 +491,7 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
                 }
             }
         }
+
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@", url]]];
         return NO;
    }
