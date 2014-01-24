@@ -24,8 +24,12 @@
     self.title = @"软件详情";
     [Tool clearWebViewBackground:webView];
     self.webView.delegate = self;
+    
+    BOOL isIOS7 = [[[UIDevice currentDevice]systemVersion]floatValue] >= 7.0;
+    
+    int screenHeight = [UIScreen mainScreen].bounds.size.height;
 
-    self.webView.frame = CGRectMake(0, 0, 320, [UIScreen mainScreen].bounds.size.height - 44 - 20);
+    self.webView.frame = CGRectMake(0, 0, 320,  isIOS7 ? screenHeight : screenHeight - 20);
     
     //如果没有网络
     if ([Config Instance].isNetworkRunning) {
