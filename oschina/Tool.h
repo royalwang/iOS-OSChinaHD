@@ -180,6 +180,10 @@
 
 + (NSString *)GenerateTags:(NSMutableArray *)tags;
 
+//过滤url中的script标签
 + (NSString *)MyRegularExpressions:(NSString *)url;
+
+//读取资源文件
++ (NSString *) readResouceFile:(NSString *)filename andExt:(NSString *)ext;
 
 @end

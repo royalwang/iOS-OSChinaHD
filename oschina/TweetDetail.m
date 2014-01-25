@@ -103,8 +103,9 @@ bool textViewIsEmpty;
             TBXMLElement *pubDate = [TBXML childElementNamed:@"pubDate" parentElement:t];
             TBXMLElement *imgSmall = [TBXML childElementNamed:@"imgSmall" parentElement:t];
             TBXMLElement *imgBig = [TBXML childElementNamed:@"imgBig" parentElement:t];
+            TBXMLElement *attach = [TBXML childElementNamed:@"attach" parentElement:t];
             TBXMLElement *appClient = [TBXML childElementNamed:@"appclient" parentElement:t];
-            self.singleTweet = [[Tweet alloc] initWidthParameters:[[TBXML textForElement:_id] intValue] andAuthor:[TBXML textForElement:author] andAuthorID:[[TBXML textForElement:authorid] intValue] andTweet:[TBXML textForElement:body] andFromNowOn:[Tool intervalSinceNow:[TBXML textForElement:pubDate]] andImg:[TBXML textForElement:portrait] andCommentCount:[[TBXML textForElement:commentCount] intValue] andImgTweet:[TBXML textForElement:imgSmall] andImgBig:[TBXML textForElement:imgBig] andAppClient:[[TBXML textForElement:appClient] intValue]];
+            self.singleTweet = [[Tweet alloc] initWidthParameters:[[TBXML textForElement:_id] intValue] andAuthor:[TBXML textForElement:author] andAuthorID:[[TBXML textForElement:authorid] intValue] andTweet:[TBXML textForElement:body] andFromNowOn:[Tool intervalSinceNow:[TBXML textForElement:pubDate]] andImg:[TBXML textForElement:portrait] andCommentCount:[[TBXML textForElement:commentCount] intValue] andImgTweet:[TBXML textForElement:imgSmall] andImgBig:[TBXML textForElement:imgBig] andAppClient:[[TBXML textForElement:appClient] intValue] andAttach:[TBXML textForElement:attach]];
             //通知已经获取了帖子回复数 
             Notification_CommentCount *notification = [[Notification_CommentCount alloc] initWithParameters:self andCommentCount:self.singleTweet.commentCount];
             [[NSNotificationCenter defaultCenter] postNotificationName:Notification_DetailCommentCount object:notification];
@@ -116,7 +117,20 @@ bool textViewIsEmpty;
             }
             
             self.webView.backgroundColor = [Tool getBackgroundColor];
-            NSString *html = [NSString stringWithFormat:@"%@<body style='background-color:#EBEBF3'><div id='oschina_title'><a href='http://my.oschina.net/u/%d'>%@</a></div><div id='oschina_outline'>%@</div><br/><div id='oschina_body' style='font-weight:bold;font-size:14px;line-height:21px;'>%@</div>%@%@</body>",HTML_Style, singleTweet.authorID, singleTweet.author,pubTime,singleTweet.tweet,imgHtml,HTML_Bottom];
+            
+            BOOL is_audio = singleTweet.attach.length > 0;
+            
+            //读取语音动弹相关html、js
+            NSString *audio_html = @"";
+            NSString *jquery_js = @"";
+            if(is_audio){
+                audio_html = [Tool readResouceFile:@"audio" andExt:@"html"];
+                audio_html = [NSString stringWithFormat:audio_html,singleTweet.attach,singleTweet.attach];
+                jquery_js = [Tool readResouceFile:@"jquery-1.7.1.min" andExt:@"js"];
+            }
+            
+            NSString *html = [NSString stringWithFormat:@"<!DOCTYPE html><html><head><script type='text/javascript'>%@</script></head>%@<body style='background-color:#EBEBF3'><div id='oschina_title'><a href='http://my.oschina.net/u/%d'>%@</a></div><div id='oschina_outline'>%@</div><br/><div id='oschina_body' style='font-weight:bold;font-size:14px;line-height:21px;'>%@</div>%@%@%@</body></html>",jquery_js,HTML_Style, singleTweet.authorID, singleTweet.author,pubTime,singleTweet.tweet,imgHtml,HTML_Bottom,audio_html];
+            
             [self.webView loadHTMLString:html baseURL:nil];
             
         }

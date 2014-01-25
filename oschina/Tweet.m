@@ -20,6 +20,7 @@
 @synthesize imgTweet;
 @synthesize imgTweetData;
 @synthesize imgBig;
+@synthesize attach;
 @synthesize appClient;
 @synthesize height;
 
@@ -33,6 +34,7 @@
                 andImgTweet:(NSString *)nimgTweet 
                 andImgBig:(NSString *)nimgBig 
                 andAppClient:(int)nappClient
+                andAttach:(NSString *)nattach
 {
     Tweet *t = [[Tweet alloc] init];
     t._id = newid;
@@ -45,6 +47,7 @@
     t.imgTweet = nimgTweet;
     t.imgBig = nimgBig;
     t.appClient = nappClient;
+    t.attach = nattach;
     UITextView *txt = [[UITextView alloc] initWithFrame:CGRectMake(157, 178, 236, 331)];
     t.height = [Tool getTextViewHeight:txt andUIFont:[UIFont fontWithName:@"arial" size:14.0f] andText:t.tweet];
     return t;

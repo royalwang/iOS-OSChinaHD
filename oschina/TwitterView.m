@@ -181,8 +181,9 @@
             TBXMLElement *pubDate = [TBXML childElementNamed:@"pubDate" parentElement:first];
             TBXMLElement *imgSmall = [TBXML childElementNamed:@"imgSmall" parentElement:first];
             TBXMLElement *imgBig = [TBXML childElementNamed:@"imgBig" parentElement:first];
+            TBXMLElement *attach = [TBXML childElementNamed:@"attach" parentElement:first];
             TBXMLElement *appClient = [TBXML childElementNamed:@"appclient" parentElement:first];
-            Tweet *t = [[Tweet alloc] initWidthParameters:[[TBXML textForElement:_id] intValue] andAuthor:[TBXML textForElement:author] andAuthorID:[[TBXML textForElement:authorID] intValue] andTweet:[TBXML textForElement:words] andFromNowOn:[Tool intervalSinceNow:[TBXML textForElement:pubDate]] andImg:[TBXML textForElement:portrait] andCommentCount:[[TBXML textForElement:commentCount] intValue] andImgTweet:[TBXML textForElement:imgSmall] andImgBig:[TBXML textForElement:imgBig] andAppClient:[[TBXML textForElement:appClient] intValue]];
+            Tweet *t = [[Tweet alloc] initWidthParameters:[[TBXML textForElement:_id] intValue] andAuthor:[TBXML textForElement:author] andAuthorID:[[TBXML textForElement:authorID] intValue] andTweet:[TBXML textForElement:words] andFromNowOn:[Tool intervalSinceNow:[TBXML textForElement:pubDate]] andImg:[TBXML textForElement:portrait] andCommentCount:[[TBXML textForElement:commentCount] intValue] andImgTweet:[TBXML textForElement:imgSmall] andImgBig:[TBXML textForElement:imgBig] andAppClient:[[TBXML textForElement:appClient] intValue] andAttach:[TBXML textForElement:attach]];
             if (![Tool isRepeatTweet:tweets andTweet:t]) {
                 [newTweets addObject:t];
             }
@@ -201,9 +202,9 @@
                     pubDate = [TBXML childElementNamed:@"pubDate" parentElement:first];
                     imgSmall = [TBXML childElementNamed:@"imgSmall" parentElement:first];
                     imgBig = [TBXML childElementNamed:@"imgBig" parentElement:first];
+                    TBXMLElement *attach = [TBXML childElementNamed:@"attach" parentElement:first];
                     appClient = [TBXML childElementNamed:@"appclient" parentElement:first];
-                    t = [[Tweet alloc] initWidthParameters:[[TBXML textForElement:_id] intValue] andAuthor:[TBXML textForElement:author] andAuthorID:[[TBXML textForElement:authorID] intValue] andTweet:[TBXML textForElement:words] andFromNowOn:[Tool intervalSinceNow:[TBXML textForElement:pubDate]] andImg:[TBXML textForElement:portrait] andCommentCount:[[TBXML textForElement:commentCount] intValue] andImgTweet:[TBXML textForElement:imgSmall] andImgBig:[TBXML textForElement:imgBig]
-                                              andAppClient:[[TBXML textForElement:appClient] intValue]];
+                    t = [[Tweet alloc] initWidthParameters:[[TBXML textForElement:_id] intValue] andAuthor:[TBXML textForElement:author] andAuthorID:[[TBXML textForElement:authorID] intValue] andTweet:[TBXML textForElement:words] andFromNowOn:[Tool intervalSinceNow:[TBXML textForElement:pubDate]] andImg:[TBXML textForElement:portrait] andCommentCount:[[TBXML textForElement:commentCount] intValue] andImgTweet:[TBXML textForElement:imgSmall] andImgBig:[TBXML textForElement:imgBig] andAppClient:[[TBXML textForElement:appClient] intValue] andAttach:[TBXML textForElement:attach]];
                     if (![Tool isRepeatTweet:tweets andTweet:t]) {
                         [newTweets addObject:t];
                     }

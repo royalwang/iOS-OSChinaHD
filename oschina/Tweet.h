@@ -22,6 +22,7 @@
 @property (nonatomic,copy) NSString * imgTweet;
 @property (nonatomic,retain) UIImage * imgTweetData;
 @property (nonatomic,copy) NSString * imgBig;
+@property (nonatomic,copy) NSString * attach;
 @property int appClient;
 @property int height;
 
@@ -34,6 +35,7 @@
                 andCommentCount:(int)newCommentCount 
                 andImgTweet:(NSString *)nimgTweet 
                 andImgBig:(NSString *)nimgBig 
-                andAppClient:(int)nappClient;
+                andAppClient:(int)nappClient
+                andAttach:(NSString *)attach;
 
 @end

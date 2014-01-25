@@ -848,6 +848,8 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
             return @"来自iPhone";
         case 5:
             return @"来自Windows Phone";
+        case 6:
+            return @"来自微信";
         default:
             return @"";
     }
@@ -1593,7 +1595,7 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
 {
     //remove <script></script> from comment content
     NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<script[^>]*?>.*?</script>" options:NULL error:&error];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<script[^>]*?>.*?</script>" options:0 error:&error];
     NSString *lowercaseString = [url lowercaseStringWithLocale:[NSLocale currentLocale]];
     NSString *modifedContent = [regex stringByReplacingMatchesInString:lowercaseString options:0 range:NSMakeRange(0,[lowercaseString length]) withTemplate:@""];
     
@@ -1609,6 +1611,12 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     return finalUrl;
 }
 
++ (NSString *) readResouceFile:(NSString *)filename andExt:(NSString *)ext
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:ext];
+    NSString *content = [NSString  stringWithContentsOfFile:path encoding: NSUTF8StringEncoding  error:NULL];
+    return content;
+}
 
 @end
 

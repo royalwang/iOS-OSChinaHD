@@ -18,6 +18,9 @@
 		6DFEFD4C18644DE2004EB774 /* questionBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEFD4A18644DE2004EB774 /* questionBlue@2x.png */; };
 		6DFEFD4D18644DE2004EB774 /* searchBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEFD4B18644DE2004EB774 /* searchBlue@2x.png */; };
 		6DFEFD4F18644E43004EB774 /* tweetBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DFEFD4E18644E43004EB774 /* tweetBlue@2x.png */; };
+		AB1AEAD018937A9800C607BA /* audio.html in Resources */ = {isa = PBXBuildFile; fileRef = AB1AEACF18937A9800C607BA /* audio.html */; };
+		AB1AEAD418938CFF00C607BA /* jquery-1.7.1.min.js in Sources */ = {isa = PBXBuildFile; fileRef = AB1AEAD318938CFF00C607BA /* jquery-1.7.1.min.js */; };
+		AB1AEAD5189393BA00C607BA /* jquery-1.7.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = AB1AEAD318938CFF00C607BA /* jquery-1.7.1.min.js */; };
 		DA1763F4157C6AA400C7AE95 /* RTActiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1763F2157C6AA400C7AE95 /* RTActiveCell.m */; };
 		DA1763F5157C6AA400C7AE95 /* RTActiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1763F3157C6AA400C7AE95 /* RTActiveCell.xib */; };
 		DA1763F9157C6BCF00C7AE95 /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1763F8157C6BCF00C7AE95 /* RTLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -393,6 +396,8 @@
 		6DFEFD4A18644DE2004EB774 /* questionBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "questionBlue@2x.png"; sourceTree = "<group>"; };
 		6DFEFD4B18644DE2004EB774 /* searchBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchBlue@2x.png"; sourceTree = "<group>"; };
 		6DFEFD4E18644E43004EB774 /* tweetBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tweetBlue@2x.png"; sourceTree = "<group>"; };
+		AB1AEACF18937A9800C607BA /* audio.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = audio.html; sourceTree = "<group>"; };
+		AB1AEAD318938CFF00C607BA /* jquery-1.7.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.7.1.min.js"; sourceTree = "<group>"; };
 		DA1763F1157C6AA400C7AE95 /* RTActiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTActiveCell.h; sourceTree = "<group>"; };
 		DA1763F2157C6AA400C7AE95 /* RTActiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTActiveCell.m; sourceTree = "<group>"; };
 		DA1763F3157C6AA400C7AE95 /* RTActiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTActiveCell.xib; sourceTree = "<group>"; };
@@ -1639,11 +1644,13 @@
 				DAD6B76F1522A263007E2760 /* feedback@2x.png */,
 				DAD6B7701522A263007E2760 /* logo@2x.png */,
 				DAD6B7731522A263007E2760 /* setting@2x.png */,
+				AB1AEAD318938CFF00C607BA /* jquery-1.7.1.min.js */,
 				DAD6B7741522A263007E2760 /* share@2x.png */,
 				DAD6B7751522A263007E2760 /* tweet@2x.png */,
 				DAD6B7761522A263007E2760 /* weibo@2x.png */,
 				DAC5D7AD1519D7370041AE9A /* blueArrow.png */,
 				DAC5D7AE1519D7370041AE9A /* blueArrow@2x.png */,
+				AB1AEACF18937A9800C607BA /* audio.html */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -1869,6 +1876,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB1AEAD5189393BA00C607BA /* jquery-1.7.1.min.js in Resources */,
 				DACC688514FF8049006F7B6A /* InfoPlist.strings in Resources */,
 				DABA75CB150469D100521596 /* SettingView.xib in Resources */,
 				DACA4EBA15049CA900EAC504 /* About.xib in Resources */,
@@ -1940,6 +1948,7 @@
 				DA8A0160155BB06400E40D0D /* 640x60.png in Resources */,
 				DA282A8E155CD284002D773A /* FriendsView.xib in Resources */,
 				DA282A93155CD5B2002D773A /* FriendCell.xib in Resources */,
+				AB1AEAD018937A9800C607BA /* audio.html in Resources */,
 				DA282A96155CD731002D773A /* man.png in Resources */,
 				DA282A97155CD731002D773A /* woman.png in Resources */,
 				DABF80E115609A6600ED8DDE /* SoftwareView.xib in Resources */,
@@ -2128,6 +2137,7 @@
 				DAB2C91C150878F600DA5B94 /* IconDownloader.m in Sources */,
 				DAB2C9511508970500DA5B94 /* LoginView.m in Sources */,
 				DAB2C95615089F2400DA5B94 /* ActivesView.m in Sources */,
+				AB1AEAD418938CFF00C607BA /* jquery-1.7.1.min.js in Sources */,
 				DAB2C95B1508A16E00DA5B94 /* MessageView.m in Sources */,
 				DAB2C95F1508AD3600DA5B94 /* Message.m in Sources */,
 				DACC3B961509B1A100E378D2 /* Activity.m in Sources */,
