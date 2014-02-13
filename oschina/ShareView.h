@@ -13,11 +13,12 @@
 #import "Tool.h"
 #import "ShareObject.h"
 #import "UITap.h"
+#import "WXApi.h"
 
 #define SinaAppKey @"3616966952"
-#define SinaAppSecret @"fd81f6d31427b467f49226e48a741e28"
+#define WeChatKey @"wx41be5fe48092e94c"
 
-@interface ShareView : UIViewController
+@interface ShareView : UIViewController<WXApiDelegate>
 {
     NSString * url;
     NSString * content;
@@ -26,18 +27,23 @@
     
     UITap *tapSina;
     UITap *tapQQ;
+    UITap *tapWechat;
     
     BOOL isInitialize;
     
     MBProgressHUD * hud;
+    
 }
 @property (strong, nonatomic) IBOutlet UIImageView *imgSina;
 @property (strong, nonatomic) IBOutlet UIImageView *imgQQ;
+@property (strong, nonatomic) IBOutlet UIImageView *imgWechat;
+
 
 @property (copy,nonatomic) NSString * url;
 @property (copy,nonatomic) NSString * content;
 
 - (IBAction)click_qqshare:(id)sender;
 - (IBAction)click_weibo:(id)sender;
+- (IBAction)click_wechat:(id)sender;
 
 @end

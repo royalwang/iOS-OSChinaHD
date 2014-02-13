@@ -1175,6 +1175,7 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     }
     TBXMLElement *_id = [TBXML childElementNamed:@"id" parentElement:blog];
     TBXMLElement *title = [TBXML childElementNamed:@"title" parentElement:blog];
+    TBXMLElement *url = [TBXML childElementNamed:@"url" parentElement:blog];
     TBXMLElement *where = [TBXML childElementNamed:@"where" parentElement:blog];
     TBXMLElement *body = [TBXML childElementNamed:@"body" parentElement:blog];
     TBXMLElement *author = [TBXML childElementNamed:@"author" parentElement:blog];
@@ -1182,12 +1183,10 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     TBXMLElement *documentType = [TBXML childElementNamed:@"documentType" parentElement:blog];
     TBXMLElement *pubDate = [TBXML childElementNamed:@"pubDate" parentElement:blog];
     TBXMLElement *fav = [TBXML childElementNamed:@"favorite" parentElement:blog];
-    TBXMLElement *url = [TBXML childElementNamed:@"url;" parentElement:blog];
     TBXMLElement *commentCount = [TBXML childElementNamed:@"commentCount" parentElement:blog];
     
     
     Blog *b = [[Blog alloc] initWithParameters:[[TBXML textForElement:_id] intValue] andTitle:[TBXML textForElement:title] andWhere:[TBXML textForElement:where] andBody:[TBXML textForElement:body] andAuthor:[TBXML textForElement:author] andAuthorid:[[TBXML textForElement:authorid] intValue] andDocumentType:[[TBXML textForElement:documentType] intValue] andPubDate:[TBXML textForElement:pubDate] andFavorite:[[TBXML textForElement:fav] intValue] == 1 andUrl:[TBXML textForElement:url] andCommentCount:[[TBXML textForElement:commentCount] intValue]];
-    
     return b;
 }
 + (NSMutableArray *)readStrNewsArray:(NSString *)str andOld:(NSMutableArray *)olds
@@ -1611,11 +1610,91 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     return finalUrl;
 }
 
++ (NSString *)ReplaceString:(NSString *)targetString useRegExp:(NSString *) regExp byString:(NSString *) replaceString
+{
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regExp options:0 error:&error];
+    NSString *lowercaseString = [targetString lowercaseStringWithLocale:[NSLocale currentLocale]];
+    NSString *modifiedString = [regex stringByReplacingMatchesInString:lowercaseString options:0 range:NSMakeRange(0,[lowercaseString length]) withTemplate:replaceString];
+    return modifiedString;
+}
+
++ (NSArray *)ExactImagesFrom:(NSString *)html{
+    NSString *regex = @"<img.*?src=\"([^\"]*)\"[^>]*>";
+    NSArray *arr = [html arrayOfCaptureComponentsMatchedByRegex:regex];
+    return arr;
+}
+
 + (NSString *) readResouceFile:(NSString *)filename andExt:(NSString *)ext
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:ext];
     NSString *content = [NSString  stringWithContentsOfFile:path encoding: NSUTF8StringEncoding  error:NULL];
     return content;
+}
+
++ (UIImage *)thumbnailWithImageWithoutScale:(UIImage *)image size:(CGSize)asize
+
+{
+    
+    UIImage *newimage;
+    
+    
+    if (nil == image) {
+        
+        newimage = nil;
+        
+    }
+    
+    else{
+        
+        CGSize oldsize = image.size;
+        
+        CGRect rect;
+        
+        if (asize.width/asize.height > oldsize.width/oldsize.height) {
+            
+            rect.size.width = asize.height*oldsize.width/oldsize.height;
+            
+            rect.size.height = asize.height;
+            
+            rect.origin.x = (asize.width - rect.size.width)/2;
+            
+            rect.origin.y = 0;
+            
+        }
+        
+        else{
+            
+            rect.size.width = asize.width;
+            
+            rect.size.height = asize.width*oldsize.height/oldsize.width;
+            
+            rect.origin.x = 0;
+            
+            rect.origin.y = (asize.height - rect.size.height)/2;
+            
+        }
+        
+        
+        UIGraphicsBeginImageContext(asize);
+        
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        
+        CGContextSetFillColorWithColor(context, [[UIColor clearColor] CGColor]);
+        
+        UIRectFill(CGRectMake(0, 0, asize.width, asize.height));//clear background
+        
+        [image drawInRect:rect];
+        
+        newimage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        
+    }
+    
+    
+    return newimage;
+    
 }
 
 @end

@@ -12,7 +12,8 @@
 
 @property (copy,nonatomic) NSString * title;
 @property (copy,nonatomic) NSString * url;
+@property (copy,nonatomic) NSString * content;
 
-- (id)initWithParameters:(NSString *)ntitle andUrl:(NSString *)nurl;
+- (id)initWithParameters:(NSString *)ntitle andUrl:(NSString *)nurl andContent:(NSString *) ncontent;
 
 @end

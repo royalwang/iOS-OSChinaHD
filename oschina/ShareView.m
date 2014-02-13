@@ -7,10 +7,12 @@
 //
 
 #import "ShareView.h"
+#import "RegexKitLite.h"
 
 @implementation ShareView
 @synthesize imgSina;
 @synthesize imgQQ;
+@synthesize imgWechat;
 @synthesize url;
 @synthesize content;
 
@@ -49,18 +51,28 @@
     tapQQ = [[UITap alloc] initWithTarget:self action:@selector(click_qqshare:)];
     [imgQQ addGestureRecognizer:tapQQ];
     
+    tapWechat =[[UITap alloc] initWithTarget:self action:@selector(click_wechat:)];
+    [imgWechat addGestureRecognizer:tapWechat];
+    
     self.view.backgroundColor = [Tool getBackgroundColor];
     
     if (IS_IPHONE_5) {
-        self.imgSina.frame = CGRectMake(40, 137, 240, 44);
-        self.imgQQ.frame = CGRectMake(40, 260, 240, 44);
+        self.imgSina.frame = CGRectMake(40, 92, 240, 44);
+        self.imgQQ.frame = CGRectMake(40, 215, 240, 44);
+        self.imgWechat.frame = CGRectMake(40, 338, 240, 44);
+    }else{
+        self.imgSina.frame = CGRectMake(40, 62, 240, 44);
+        self.imgQQ.frame = CGRectMake(40, 165, 240, 44);
+        self.imgWechat.frame = CGRectMake(40, 268, 240, 44);
     }
+    
 }
 
 - (void)viewDidUnload
 {
     [self setImgSina:nil];
     [self setImgQQ:nil];
+    [self setImgWechat:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -96,6 +108,48 @@
                          [[Config Instance].shareObject.title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                          [[Config Instance].shareObject.url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:all]];
+    }
+}
+
+- (IBAction)click_wechat:(id)sender {
+    [self sendLinkContent];
+}
+
+- (void) sendLinkContent
+{
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = [Config Instance].shareObject.title;
+    message.description = [Config Instance].shareObject.title;
+    NSArray *imageArray = [Tool ExactImagesFrom:[Config Instance].shareObject.content];
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    NSString *urlStr = [Config Instance].shareObject.url;
+    ext.webpageUrl = [Tool ReplaceString:urlStr useRegExp:@"http://www" byString:@"http://m"] ;
+    
+    message.mediaObject = ext;
+    
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.scene = WXSceneTimeline;
+   
+    if([imageArray count]>0){
+        NSURL *imageURL = [NSURL URLWithString:imageArray[0][1]];
+        //异步获取网络图片
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImage *image = [UIImage imageWithData:imageData];
+                CGSize size = CGSizeMake(200,200);
+                [message setThumbImage:[Tool thumbnailWithImageWithoutScale:image size:size]];
+                req.message = message;
+                [WXApi sendReq:req];
+            });
+        });
+        return;
+    }else{
+        [message setThumbImage:[UIImage imageNamed:@"120_120.png"]];
+        req.message = message;
+        [WXApi sendReq:req];
     }
 }
 

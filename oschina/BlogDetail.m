@@ -153,7 +153,7 @@
     NSString *result = [Tool getHTMLString:html];
     [self.webView loadHTMLString:result baseURL:nil];
     
-    [Config Instance].shareObject = [[ShareObject alloc] initWithParameters:b.title andUrl:b.url];
+    [Config Instance].shareObject = [[ShareObject alloc] initWithParameters:b.title andUrl:b.url andContent:b.body];
 }
 - (void)refreshFavorite:(Blog *)b
 {

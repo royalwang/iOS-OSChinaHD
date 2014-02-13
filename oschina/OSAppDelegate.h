@@ -16,9 +16,10 @@
 #import "TweetBase2.h"
 #import "SettingView.h"
 #import "NdUncaughtExceptionHandler.h"
+#import "WXApi.h"
 
 @class ProfileBase;
-@interface OSAppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
+@interface OSAppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,WXApiDelegate>
 {
     int m_lastTabIndex;
 }

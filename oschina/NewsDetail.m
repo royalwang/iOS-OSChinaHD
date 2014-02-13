@@ -157,7 +157,7 @@
     Notification_CommentCount *notification = [[Notification_CommentCount alloc] initWithParameters:self andCommentCount:n.commentCount];
     [[NSNotificationCenter defaultCenter] postNotificationName:Notification_DetailCommentCount object:notification];
     //新闻  主要用于微博分享
-    [Config Instance].shareObject = [[ShareObject alloc] initWithParameters:n.title andUrl:n.url];
+    [Config Instance].shareObject = [[ShareObject alloc] initWithParameters:n.title andUrl:n.url andContent:n.body];
     //控件更新
     NSString *author_str = [NSString stringWithFormat:@"<a href='http://my.oschina.net/u/%d'>%@</a> 发布于 %@",n.authorid,n.author,n.pubDate];
     

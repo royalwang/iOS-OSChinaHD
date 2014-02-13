@@ -183,7 +183,16 @@
 //过滤url中的script标签
 + (NSString *)MyRegularExpressions:(NSString *)url;
 
+//替换字符串
++ (NSString *)ReplaceString:(NSString *)targetString useRegExp:(NSString *) regExp byString:(NSString *) replaceString;
+
+//从html中提取所有图片链接
++ (NSArray *)ExactImagesFrom:(NSString *)html;
+
 //读取资源文件
 + (NSString *) readResouceFile:(NSString *)filename andExt:(NSString *)ext;
+
+//保持原来的长宽比，生成一个缩略图
++ (UIImage *)thumbnailWithImageWithoutScale:(UIImage *)image size:(CGSize)asize;
 
 @end

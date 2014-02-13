@@ -21,6 +21,11 @@
 		AB1AEAD018937A9800C607BA /* audio.html in Resources */ = {isa = PBXBuildFile; fileRef = AB1AEACF18937A9800C607BA /* audio.html */; };
 		AB1AEAD418938CFF00C607BA /* jquery-1.7.1.min.js in Sources */ = {isa = PBXBuildFile; fileRef = AB1AEAD318938CFF00C607BA /* jquery-1.7.1.min.js */; };
 		AB1AEAD5189393BA00C607BA /* jquery-1.7.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = AB1AEAD318938CFF00C607BA /* jquery-1.7.1.min.js */; };
+		AB7371C518AA1F38009FCB16 /* share_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7371C418AA1F38009FCB16 /* share_weixin.png */; };
+		AB7371CA18AA28D4009FCB16 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7371C718AA28D4009FCB16 /* libWeChatSDK.a */; };
+		AB8E7B8918AA398E00AFE84D /* 58_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 17C6730B1884FA8C0072D327 /* 58_58.png */; };
+		AB8E7B8A18AA398E00AFE84D /* 80_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 17C6730A1884FA6C0072D327 /* 80_80.png */; };
+		AB8E7B8B18AA398E00AFE84D /* 120_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 17C673091884FA520072D327 /* 120_120.png */; };
 		DA1763F4157C6AA400C7AE95 /* RTActiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1763F2157C6AA400C7AE95 /* RTActiveCell.m */; };
 		DA1763F5157C6AA400C7AE95 /* RTActiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1763F3157C6AA400C7AE95 /* RTActiveCell.xib */; };
 		DA1763F9157C6BCF00C7AE95 /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1763F8157C6BCF00C7AE95 /* RTLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -398,6 +403,10 @@
 		6DFEFD4E18644E43004EB774 /* tweetBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tweetBlue@2x.png"; sourceTree = "<group>"; };
 		AB1AEACF18937A9800C607BA /* audio.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = audio.html; sourceTree = "<group>"; };
 		AB1AEAD318938CFF00C607BA /* jquery-1.7.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.7.1.min.js"; sourceTree = "<group>"; };
+		AB7371C418AA1F38009FCB16 /* share_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_weixin.png; sourceTree = "<group>"; };
+		AB7371C718AA28D4009FCB16 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		AB7371C818AA28D4009FCB16 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		AB7371C918AA28D4009FCB16 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		DA1763F1157C6AA400C7AE95 /* RTActiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTActiveCell.h; sourceTree = "<group>"; };
 		DA1763F2157C6AA400C7AE95 /* RTActiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTActiveCell.m; sourceTree = "<group>"; };
 		DA1763F3157C6AA400C7AE95 /* RTActiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTActiveCell.xib; sourceTree = "<group>"; };
@@ -906,6 +915,7 @@
 				DACC687B14FF8049006F7B6A /* UIKit.framework in Frameworks */,
 				DACC687D14FF8049006F7B6A /* Foundation.framework in Frameworks */,
 				DACC687F14FF8049006F7B6A /* CoreGraphics.framework in Frameworks */,
+				AB7371CA18AA28D4009FCB16 /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,6 +946,16 @@
 				6DB669341868046E00CE980D /* PEResizeControl.m */,
 			);
 			name = PEPhotoCropEditor;
+			sourceTree = "<group>";
+		};
+		AB7371C618AA28B9009FCB16 /* Wechat */ = {
+			isa = PBXGroup;
+			children = (
+				AB7371C718AA28D4009FCB16 /* libWeChatSDK.a */,
+				AB7371C818AA28D4009FCB16 /* WXApi.h */,
+				AB7371C918AA28D4009FCB16 /* WXApiObject.h */,
+			);
+			name = Wechat;
 			sourceTree = "<group>";
 		};
 		DA16A7461562109A00A14D9D /* My */ = {
@@ -1556,6 +1576,7 @@
 		DACC688014FF8049006F7B6A /* oschina */ = {
 			isa = PBXGroup;
 			children = (
+				AB7371C618AA28B9009FCB16 /* Wechat */,
 				DAF7AB251614180C005D464C /* AES */,
 				DAB06C8B15DA367B007311E4 /* AFNetwork */,
 				DAB6CDCE15BD267400B483B2 /* GCDiscreetNotificationView */,
@@ -1640,6 +1661,7 @@
 				DAD6B7B81522CFA4007E2760 /* userInfo@2x.png */,
 				DAD6B76A1522A263007E2760 /* account@2x.png */,
 				DAD6B76D1522A263007E2760 /* detail@2x.png */,
+				AB7371C418AA1F38009FCB16 /* share_weixin.png */,
 				DAD6B76E1522A263007E2760 /* exit@2x.png */,
 				DAD6B76F1522A263007E2760 /* feedback@2x.png */,
 				DAD6B7701522A263007E2760 /* logo@2x.png */,
@@ -1876,6 +1898,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8E7B8918AA398E00AFE84D /* 58_58.png in Resources */,
+				AB8E7B8A18AA398E00AFE84D /* 80_80.png in Resources */,
+				AB8E7B8B18AA398E00AFE84D /* 120_120.png in Resources */,
 				AB1AEAD5189393BA00C607BA /* jquery-1.7.1.min.js in Resources */,
 				DACC688514FF8049006F7B6A /* InfoPlist.strings in Resources */,
 				DABA75CB150469D100521596 /* SettingView.xib in Resources */,
@@ -2037,6 +2062,7 @@
 				DAC77DFB15CFC94C00AC22FF /* 063@2x.png in Resources */,
 				DAC77DFC15CFC94C00AC22FF /* 064@2x.png in Resources */,
 				DAC77DFD15CFC94C00AC22FF /* 065@2x.png in Resources */,
+				AB7371C518AA1F38009FCB16 /* share_weixin.png in Resources */,
 				DAC77DFE15CFC94C00AC22FF /* 067@2x.png in Resources */,
 				DAC77DFF15CFC94C00AC22FF /* 068@2x.png in Resources */,
 				DAC77E0015CFC94C00AC22FF /* 069@2x.png in Resources */,
@@ -2349,8 +2375,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"/Users/wangjun/Downloads/JimLiu-WeiboSDK-01bcd6e 2/SinaWeiboOAuthDemo/Classes/WeiboEngine\"",
-					"\"$(SRCROOT)\"",
+					"/Users/wangjun/Downloads/JimLiu-WeiboSDK-01bcd6e\\ 2/SinaWeiboOAuthDemo/Classes/WeiboEngine",
+					"$(SRCROOT)",
+					"/Users/daisy/Projects/iphone-app/oschina",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2375,8 +2402,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"/Users/wangjun/Downloads/JimLiu-WeiboSDK-01bcd6e 2/SinaWeiboOAuthDemo/Classes/WeiboEngine\"",
-					"\"$(SRCROOT)\"",
+					"/Users/wangjun/Downloads/JimLiu-WeiboSDK-01bcd6e\\ 2/SinaWeiboOAuthDemo/Classes/WeiboEngine",
+					"$(SRCROOT)",
+					"/Users/daisy/Projects/iphone-app/oschina",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

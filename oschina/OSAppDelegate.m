@@ -75,6 +75,10 @@
     [MyThread Instance].mainView = self.tabBarController.view;
     //准备未处理的异常
     [NdUncaughtExceptionHandler setDefaultHandler];
+    
+    //注册微信
+    [WXApi registerApp:@"wx41be5fe48092e94c"];
+
     return YES;
 }
 
@@ -135,6 +139,36 @@
     else
     {
         m_lastTabIndex = newTabIndex;
+    }
+}
+
+//微信相关
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+-(void) onResp:(BaseResp*)resp
+{
+    if([resp isKindOfClass:[SendMessageToWXResp class]])
+    {
+        NSString *strTitle = [NSString stringWithFormat:@"分享到朋友圈"];
+        
+        NSString *strMsg = @"";
+        if(resp.errCode == WXSuccess){
+            strMsg = @"分享成功";
+        }else if(resp.errCode == WXErrCodeUserCancel){
+            strMsg = @"分享取消";
+        }else{
+            strMsg = [NSString stringWithFormat:@"分享失败，微信错误码：%d",resp.errCode];
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
     }
 }
 

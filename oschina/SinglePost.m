@@ -144,7 +144,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:Notification_DetailCommentCount object:notification];
     
     //微博分享准备
-    [Config Instance].shareObject = [[ShareObject alloc] initWithParameters:p.title andUrl:p.url];
+    [Config Instance].shareObject = [[ShareObject alloc] initWithParameters:p.title andUrl:p.url andContent:p.body];
     //显示
     NSString *author_str = [NSString stringWithFormat:@"<a href='http://my.oschina.net/u/%d'>%@</a> 发布于 %@",p.authorid, p.author, p.pubDate];
     NSString *html = [NSString stringWithFormat:@"<body style='background-color:#EBEBF3;'>%@<div id='oschina_title'>%@</div><div id='oschina_outline'>%@</div><hr/><div id='oschina_body'>%@</div>%@%@</body>",HTML_Style, p.title,author_str,p.body,[Tool GenerateTags:p.tags],HTML_Bottom];
