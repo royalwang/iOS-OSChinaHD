@@ -2375,13 +2375,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/wangjun/Downloads/JimLiu-WeiboSDK-01bcd6e\\ 2/SinaWeiboOAuthDemo/Classes/WeiboEngine",
 					"$(SRCROOT)",
-					"/Users/daisy/Projects/iphone-app/oschina",
+					"$(SRCROOT)/oschina",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8BC76BFB-21C3-4834-8414-277E0F7D79AF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -2402,14 +2401,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/wangjun/Downloads/JimLiu-WeiboSDK-01bcd6e\\ 2/SinaWeiboOAuthDemo/Classes/WeiboEngine",
 					"$(SRCROOT)",
-					"/Users/daisy/Projects/iphone-app/oschina",
+					"$(SRCROOT)/oschina",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8BC76BFB-21C3-4834-8414-277E0F7D79AF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

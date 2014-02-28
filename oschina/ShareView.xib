@@ -19,11 +19,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView contentMode="scaleToFill" image="share_sina.png" id="9">
-                    <rect key="frame" x="40" y="94.5" width="240" height="44"/>
+                    <rect key="frame" x="40" y="95" width="240" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView contentMode="scaleToFill" image="share_tencent.png" id="10">
-                    <rect key="frame" x="40" y="216.5" width="240" height="44"/>
+                    <rect key="frame" x="40" y="217" width="240" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_weixin.png" id="FMM-s8-hNH">
