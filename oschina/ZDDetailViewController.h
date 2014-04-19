@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZDRootViewController : UITableViewController
+@interface ZDDetailViewController : UIViewController
+{
+    UIViewController *_detail;
+}
+
+@property (nonatomic, strong) UIViewController *detail;
+
+- (void)changeToViewController:(UIViewController *)controller;
 
 @end

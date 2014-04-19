@@ -217,7 +217,8 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
             shareView.tabBarItem.image = [UIImage imageNamed:@"share"];
             newsTab.viewControllers = [NSArray arrayWithObjects:nDetail,newsComments,shareView, nil];
             newsTab.hidesBottomBarWhenPushed = YES;
-            [navController pushViewController:newsTab animated:YES];
+//            [navController pushViewController:newsTab animated:YES];
+            [AppDelegate.mainDetailController changeToViewController:newsTab];
         }
             break;
             //软件
@@ -226,7 +227,9 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
             SoftwareDetail *software = [[SoftwareDetail alloc] init];
             software.softwareName = news.attachment;
             software.hidesBottomBarWhenPushed = YES;
-            [navController pushViewController:software animated:YES];
+//            [navController pushViewController:software animated:YES];
+            
+            [AppDelegate.mainDetailController changeToViewController:software];
         }
             break;
             //问答
@@ -261,7 +264,9 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
             shareView.tabBarItem.image = [UIImage imageNamed:@"share"];
             blogTab.viewControllers = [NSArray arrayWithObjects:blog,comments,shareView, nil];
             blogTab.hidesBottomBarWhenPushed = YES;
-            [navController pushViewController:blogTab animated:YES];
+//            [navController pushViewController:blogTab animated:YES];
+            
+            [AppDelegate.mainDetailController changeToViewController:blogTab];
         }
             break;
     }
@@ -289,7 +294,9 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     shareView.tabBarItem.image = [UIImage imageNamed:@"share"];
     postTab.viewControllers = [NSArray arrayWithObjects:singlePost,commentsView,shareView, nil];
     postTab.hidesBottomBarWhenPushed = YES;
-    [navController pushViewController:postTab animated:YES];
+//    [navController pushViewController:postTab animated:YES];
+    
+    [AppDelegate.mainDetailController changeToViewController:postTab];
 }
 + (void)pushTweetDetail:(Tweet *)tweet andNavController:(UINavigationController *)navController
 {
@@ -310,7 +317,10 @@ static char base64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
     
     tweetTab.viewControllers = [NSArray arrayWithObjects:tweetDetail,tweetComments,nil];
     tweetTab.hidesBottomBarWhenPushed = YES;
-    [navController pushViewController:tweetTab animated:YES];
+//    [navController pushViewController:tweetTab animated:YES];
+    
+    [AppDelegate.mainDetailController changeToViewController:tweetTab];
+    
     //适配iOS7uinavigationbar遮挡tableView的问题
     if([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
     {

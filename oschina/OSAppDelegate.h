@@ -17,6 +17,7 @@
 #import "SettingView.h"
 #import "NdUncaughtExceptionHandler.h"
 #import "WXApi.h"
+#import "ZDDetailViewController.h"
 
 @class ProfileBase;
 @interface OSAppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,WXApiDelegate>
@@ -26,6 +27,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *tabBarController;
+@property (strong, nonatomic) ZDDetailViewController *mainDetailController;
 
 @property (strong, nonatomic) NewsBase * newsBase;
 @property (strong, nonatomic) PostBase * postBase;

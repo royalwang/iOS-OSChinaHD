@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17C673081884F0B90072D327 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C673071884F0B90072D327 /* Images.xcassets */; };
+		42FB630F18FEC96C0098BA5B /* ZDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB630E18FEC96C0098BA5B /* ZDDetailViewController.m */; };
 		45F10B6215F4F5A70058E253 /* TQImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F10B6115F4F5A70058E253 /* TQImageCache.m */; };
 		6DB669351868046E00CE980D /* PECropRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6692E1868046E00CE980D /* PECropRectView.m */; };
 		6DB669361868046E00CE980D /* PECropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB669301868046E00CE980D /* PECropView.m */; };
@@ -384,6 +385,8 @@
 		17C673091884FA520072D327 /* 120_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 120_120.png; path = oschina/120_120.png; sourceTree = "<group>"; };
 		17C6730A1884FA6C0072D327 /* 80_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 80_80.png; path = oschina/80_80.png; sourceTree = "<group>"; };
 		17C6730B1884FA8C0072D327 /* 58_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 58_58.png; path = oschina/58_58.png; sourceTree = "<group>"; };
+		42FB630D18FEC96C0098BA5B /* ZDDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDDetailViewController.h; sourceTree = "<group>"; };
+		42FB630E18FEC96C0098BA5B /* ZDDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDDetailViewController.m; sourceTree = "<group>"; };
 		45F10B6015F4F5A70058E253 /* TQImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQImageCache.h; sourceTree = "<group>"; };
 		45F10B6115F4F5A70058E253 /* TQImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQImageCache.m; sourceTree = "<group>"; };
 		6DB6692D1868046E00CE980D /* PECropRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropRectView.h; sourceTree = "<group>"; };
@@ -1603,6 +1606,8 @@
 				DACC68A514FF8101006F7B6A /* Resource */,
 				DACC688914FF8049006F7B6A /* OSAppDelegate.h */,
 				DACC688A14FF8049006F7B6A /* OSAppDelegate.m */,
+				42FB630D18FEC96C0098BA5B /* ZDDetailViewController.h */,
+				42FB630E18FEC96C0098BA5B /* ZDDetailViewController.m */,
 				17C673071884F0B90072D327 /* Images.xcassets */,
 				DACC688114FF8049006F7B6A /* Supporting Files */,
 			);
@@ -2188,6 +2193,7 @@
 				DAC686501511E84700D922BC /* Config.m in Sources */,
 				DA66192A1513205E004AFAA1 /* SingleNews.m in Sources */,
 				DA66192D1513319B004AFAA1 /* SinglePostDetail.m in Sources */,
+				42FB630F18FEC96C0098BA5B /* ZDDetailViewController.m in Sources */,
 				DA66193015133426004AFAA1 /* ShareObject.m in Sources */,
 				DA854D061516CAD8006D2834 /* ApiError.m in Sources */,
 				DA854D161516E0B2006D2834 /* Notification_CommentCount.m in Sources */,
@@ -2372,7 +2378,7 @@
 				GCC_PREFIX_HEADER = "oschina/oschina-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "oschina/oschina-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -2382,7 +2388,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2398,7 +2404,7 @@
 				GCC_PREFIX_HEADER = "oschina/oschina-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "oschina/oschina-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -2409,7 +2415,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -18,6 +18,7 @@
 @synthesize postBase;
 @synthesize tweetBase;
 @synthesize profileBase;
+@synthesize mainDetailController = _mainDetailController;
 
 #pragma mark 程序生命周期
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -62,9 +63,27 @@
                          settingNav,
                          nil];
     
+    UISplitViewController *splitController = [[UISplitViewController alloc] init];
+    splitController.view.backgroundColor = [UIColor brownColor];
+    
+    
+    
+    _mainDetailController = [[ZDDetailViewController alloc] init];
+    
+    UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:_mainDetailController];
+    
+    
+    NSArray *viewArray = [[NSArray alloc] initWithObjects:self.tabBarController, rootNavigationController, nil];
+    
+    splitController.viewControllers = viewArray;
+    
+    
+    
+    
+    
     //初始化
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.tabBarController;
+    self.window.rootViewController = splitController; //self.tabBarController;
     [self.window makeKeyAndVisible];
     //启动轮询  如果已经登录的话
     if ([Config Instance].isCookie) {
