@@ -800,10 +800,10 @@
 		DACC687A14FF8049006F7B6A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DACC687C14FF8049006F7B6A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DACC687E14FF8049006F7B6A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		DACC688214FF8049006F7B6A /* oschina-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "oschina-Info.plist"; sourceTree = "<group>"; };
+		DACC688214FF8049006F7B6A /* oschinaHD-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "oschinaHD-Info.plist"; sourceTree = "<group>"; };
 		DACC688414FF8049006F7B6A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DACC688614FF8049006F7B6A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DACC688814FF8049006F7B6A /* oschina-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oschina-Prefix.pch"; sourceTree = "<group>"; };
+		DACC688814FF8049006F7B6A /* oschinaHD-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "oschinaHD-Prefix.pch"; sourceTree = "<group>"; };
 		DACC688914FF8049006F7B6A /* OSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSAppDelegate.h; sourceTree = "<group>"; };
 		DACC688A14FF8049006F7B6A /* OSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSAppDelegate.m; sourceTree = "<group>"; };
 		DACC68AE14FF8540006F7B6A /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -1621,10 +1621,10 @@
 				DA61F7B415C27506003305E5 /* Icon.png */,
 				DA61F7B515C27506003305E5 /* Icon@2x.png */,
 				DA780B9F153EA0D1008AB7D6 /* Default.png */,
-				DACC688214FF8049006F7B6A /* oschina-Info.plist */,
+				DACC688214FF8049006F7B6A /* oschinaHD-Info.plist */,
 				DACC688314FF8049006F7B6A /* InfoPlist.strings */,
 				DACC688614FF8049006F7B6A /* main.m */,
-				DACC688814FF8049006F7B6A /* oschina-Prefix.pch */,
+				DACC688814FF8049006F7B6A /* oschinaHD-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1851,9 +1851,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DACC687514FF8049006F7B6A /* oschina */ = {
+		DACC687514FF8049006F7B6A /* oschinaHD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DACC68A214FF8049006F7B6A /* Build configuration list for PBXNativeTarget "oschina" */;
+			buildConfigurationList = DACC68A214FF8049006F7B6A /* Build configuration list for PBXNativeTarget "oschinaHD" */;
 			buildPhases = (
 				DACC687214FF8049006F7B6A /* Sources */,
 				DACC687314FF8049006F7B6A /* Frameworks */,
@@ -1863,7 +1863,7 @@
 			);
 			dependencies = (
 			);
-			name = oschina;
+			name = oschinaHD;
 			productName = oschina;
 			productReference = DACC687614FF8049006F7B6A /* oschina.app */;
 			productType = "com.apple.product-type.application";
@@ -1875,13 +1875,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
-				TargetAttributes = {
-					DACC687514FF8049006F7B6A = {
-						DevelopmentTeam = WSUBE85MHP;
-					};
-				};
 			};
-			buildConfigurationList = DACC687014FF8048006F7B6A /* Build configuration list for PBXProject "oschina" */;
+			buildConfigurationList = DACC687014FF8048006F7B6A /* Build configuration list for PBXProject "oschinaHD" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1893,7 +1888,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DACC687514FF8049006F7B6A /* oschina */,
+				DACC687514FF8049006F7B6A /* oschinaHD */,
 			);
 		};
 /* End PBXProject section */
@@ -2369,24 +2364,24 @@
 		DACC68A314FF8049006F7B6A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhengdong Wang (S4ZWP3L48R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhengdong Wang (S4ZWP3L48R)";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "oschina/oschina-Prefix.pch";
+				GCC_PREFIX_HEADER = "oschina/oschinaHD-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				INFOPLIST_FILE = "oschina/oschina-Info.plist";
+				INFOPLIST_FILE = "oschina/oschinaHD-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(SRCROOT)/oschina",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PRODUCT_NAME = oschinaHD;
+				PROVISIONING_PROFILE = "A5579751-F3AA-40E4-89EF-A9A63B8102E9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A5579751-F3AA-40E4-89EF-A9A63B8102E9";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -2396,14 +2391,14 @@
 		DACC68A414FF8049006F7B6A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "oschina/oschina-Prefix.pch";
+				GCC_PREFIX_HEADER = "oschina/oschinaHD-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				INFOPLIST_FILE = "oschina/oschina-Info.plist";
+				INFOPLIST_FILE = "oschina/oschinaHD-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2411,7 +2406,7 @@
 					"$(SRCROOT)/oschina",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = oschinaHD;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SKIP_INSTALL = NO;
@@ -2423,7 +2418,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DACC687014FF8048006F7B6A /* Build configuration list for PBXProject "oschina" */ = {
+		DACC687014FF8048006F7B6A /* Build configuration list for PBXProject "oschinaHD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DACC68A014FF8049006F7B6A /* Debug */,
@@ -2432,7 +2427,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DACC68A214FF8049006F7B6A /* Build configuration list for PBXNativeTarget "oschina" */ = {
+		DACC68A214FF8049006F7B6A /* Build configuration list for PBXNativeTarget "oschinaHD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DACC68A314FF8049006F7B6A /* Debug */,

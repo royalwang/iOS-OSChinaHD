@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DACC687514FF8049006F7B6A"
                BuildableName = "oschina.app"
-               BlueprintName = "oschina"
-               ReferencedContainer = "container:oschina.xcodeproj">
+               BlueprintName = "oschinaHD"
+               ReferencedContainer = "container:oschinaHD.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DACC687514FF8049006F7B6A"
             BuildableName = "oschina.app"
-            BlueprintName = "oschina"
-            ReferencedContainer = "container:oschina.xcodeproj">
+            BlueprintName = "oschinaHD"
+            ReferencedContainer = "container:oschinaHD.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DACC687514FF8049006F7B6A"
             BuildableName = "oschina.app"
-            BlueprintName = "oschina"
-            ReferencedContainer = "container:oschina.xcodeproj">
+            BlueprintName = "oschinaHD"
+            ReferencedContainer = "container:oschinaHD.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -83,8 +83,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DACC687514FF8049006F7B6A"
             BuildableName = "oschina.app"
-            BlueprintName = "oschina"
-            ReferencedContainer = "container:oschina.xcodeproj">
+            BlueprintName = "oschinaHD"
+            ReferencedContainer = "container:oschinaHD.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
